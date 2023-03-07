@@ -1,0 +1,57 @@
+/* Set a background color for the body */
+body {
+    background-color: #f5f5f5;
+  }
+  
+  /* Center the title and subtitle in the hero section */
+  .hero-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .title,
+  .subtitle {
+    text-align: center;
+  }
+  
+  /* Style the search bar and button */
+  .field.has-addons {
+    margin-top: 2rem;
+  }
+  
+  .input {
+    border-radius: 0;
+    border-right: none;
+    max-width: 300px;
+  }
+  
+  .button.is-info {
+    border-radius: 0;
+    border-left: none;
+  }
+  
+  /* Style the image and columns */
+  .columns {
+    margin-top: 2rem;
+  }
+  
+  .column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .image img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+  }
+  
+  /* Style the subtitle in the light hero section */
+  .hero.is-light .subtitle {
+    margin-top: 2rem;
+    text-align: center;
+  }
+  
