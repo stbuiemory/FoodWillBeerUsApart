@@ -2,16 +2,8 @@
 
 ## Description
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
 
-
-
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
-
-
+The objective behind building this application was to provide an easy to use tool for beer and food pairing.  We wanted to provide the user with an easy experience when selecting a beer, and to provide multiple options for food choices as well.  Building this project allowed us to further develop, and hone our skills in design and API implementation.  In completing this project we were able to learn more about API authorization, calls, and implementation.  We were also able to explore and learn more about using the Bulma CSS library.
 
 ## Table of Contents
 
