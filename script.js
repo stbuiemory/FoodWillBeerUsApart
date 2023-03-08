@@ -2,6 +2,7 @@
 //food choice should be user input for food
 function findFood() {
     let foodChoice = "mushroom"
+    
     $('#beerTitle').text(' ');
     $('#beerDescription').text(' ');
     // let foodChoice  = document.querySelector('input').value;
@@ -23,15 +24,31 @@ function findFood() {
             let pairing_two = data[0].food_pairing[1];
             let pairing_three = data[0].food_pairing[2];
             
-            //sets the beerdescription
+            //sets the Beerdescription
             $('#beerTitle').text(beerName);
-            $('#beerDescription').text(beerDecription);
+            $('#beerPic').attr("src", getBeerPicture());
+            $('#beerDescription').text(beerDescription);
+
+            //sets the pairing text / image
+            $('#pairing-one-text').text(pairing_one);
+            $('#pairing-one-img').attr("src", getPicture(pairing_one));
+
+            $('#pairing-two-text').text(pairing_two);
+            $('#pairing-two-img').attr("src", getPicture(pairing_two));
+
+            $('#pairing-three-text').text(pairing_three);
+            $('#pairing-three-img').attr("src", getPicture(pairing_three));
             
         })
 }
 
 //calls to PunkAPI for random beer data
 function getRandom() {
+    
+    //clears text fields
+    $('#beerTitle').text(' ');
+    $('#beerDescription').text(' ');
+
     let punkApiRandom = "https://api.punkapi.com/v2/beers/random" 
     fetch (punkApiRandom)
     .then (function(response) {
@@ -43,12 +60,27 @@ function getRandom() {
         let pairing_one = data[0].food_pairing[0];
         let pairing_two = data[0].food_pairing[1];
         let pairing_three = data[0].food_pairing[2];
+
+        //sets the beerdescription
+        $('#beerTitle').text(beerName);
+        $('#beerPic').attr("src", getBeerPicture());
+        $('#beerDescription').text(beerDescription);
+
+        //sets the pairing text / image
+        $('#pairing-one-text').text(pairing_one);
+        $('#pairing-one-img').attr("src", getPicture(pairing_one));
+
+        $('#pairing-two-text').text(pairing_two);
+        $('#pairing-two-img').attr("src", getPicture(pairing_two));
+
+        $('#pairing-three-text').text(pairing_three);
+        $('#pairing-three-img').attr("src", getPicture(pairing_three));
     })
 }
 
-function getPicture() {
+function getPicture(foodChoice) {
     //created pexel api call as variable
-    let foodChoice = "mushroom"
+    // let foodChoice = "mushroom"
     let pexel = "https://api.pexels.com/v1/search?query=" + foodChoice
 
     //calls to pexel API for image search
@@ -60,7 +92,8 @@ function getPicture() {
     })
     //returns data from pexel search and logs in console
     .then (function(data) {
-        // console.log(data)
+        let pic = data.photos[0].src.medium;
+        return pic;
     })
 }
 
@@ -84,10 +117,6 @@ function getBeerPicture() {
 }
 
 
-
- //TODO: create a functiona if #randombutton is selected on the UI, grab the beer and food pairings
-
-//TODO: Pass each food pairing to the Pexels API to grab an image.
 
  //TODO: create a function to use local storage to store and retrieve food pairings 
 
