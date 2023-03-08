@@ -1,88 +1,98 @@
-
-//food choice should be user input for food
-let foodChoice = "mushroom"
-const container = $('.container')
-console.log(container)
-
-//PUNK API
-//https://api.punkapi.com/v2/beers
-//the below create variables for PunkAPI call for random and food choice each return 1 example
-let punkApiRandom = "https://api.punkapi.com/v2/beers/random" 
 const baseSearchURL = "https://api.punkapi.com/v2/beers?per_page=1&food="
-let punkApiFood = baseSearchURL + foodChoice 
-
-//this will set up the initial form for the user
-function setUpHomepage(){
-    container.append('<form id="search-prompt">')
-    let form = $('#search-prompt')
-    console.log(form)
-    form.append('<p> Find your food </p>')
-    form.append('<input type="text" placeholder="food name" id="search-name">')
-    form.append('<input type="button" value="submit" id="search">')
-    form.append('<p>or</p>')
-    form.append('<input type="button" value="submit" id="random">')
-    //onclick for search button
-    form.on('click', '#search', function(event){
-        let searchForm = $(event.target).parent('#search-prompt')
-        let textArea = searchForm.children("#search-name")
-        let criteria = (((textArea.val()).trim()).toLowerCase()).replace(/\s+/, '+')
-        console.log(criteria)
-        if(criteria===''){
-            console.log('Must have user input.')
-            return
-        }
-        callBeerData(criteria)
-    })
-    //onclick for random button
-    form.on('click', '#random', function(){
-        getRandBeerData()
-    })
+const previousSearchesKey = "previous searches"
+let searchedList = localStorage.getItem(previousSearchesKey)
+if(searchedList === null){
+    searchedList = []
+    localStorage.setItem(previousSearchesKey, JSON.stringify(searchedList))
+}else{
+    searchedList = JSON.parse(searchedList)
 }
+//food choice should be user input for food
+function findFood() {
+    let foodChoice = "mushroom"
+    
+    $('#beerTitle').text(' ');
+    $('#beerDescription').text(' ');
+    // let foodChoice  = document.querySelector('input').value;
+    
+    //PUNK API
+    //https://api.punkapi.com/v2/beers
+    //the below create variables for PunkAPI call for random and food choice each return 1 example
+    let punkApiFood = baseSearchURL + foodChoice 
+    
+    //calls to PunkAPI for beer data for food choice
+    fetch (punkApiFood)
+        .then (function(response) {
+            return response.json()
+        })
+        .then (function(data) {
+            let beerName = data[0].name; 
+            let beerDescription = data[0].description;
+            let pairing_one = data[0].food_pairing[0];
+            let pairing_two = data[0].food_pairing[1];
+            let pairing_three = data[0].food_pairing[2];
+            
+            //sets the Beerdescription
+            $('#beerTitle').text(beerName);
+            $('#beerPic').attr("src", getBeerPicture());
+            $('#beerDescription').text(beerDescription);
 
-function deconstructHomepage(){
-    let form = $('#search-prompt')
-    form.remove()
-}
-setUpHomepage()
+            //sets the pairing text / image
+            $('#pairing-one-text').text(pairing_one);
+            $('#pairing-one-img').attr("src", getPicture(pairing_one));
 
-//calls to PunkAPI for beer data for food choice
-function callBeerData(criteria){
-    let url = baseSearchURL+criteria
-    fetch (url)
-    .then (function(response) {
-        return response.json()
-    })
-    .then (function(data) {
-        console.log(data)
-    })
+            $('#pairing-two-text').text(pairing_two);
+            $('#pairing-two-img').attr("src", getPicture(pairing_two));
+
+            $('#pairing-three-text').text(pairing_three);
+            $('#pairing-three-img').attr("src", getPicture(pairing_three));
+            saveBeerData(foodChoice, data)
+            console.log(JSON.parse(getSavedData(foodChoice)))
+        })
 }
 
 //calls to PunkAPI for random beer data
-function getRandBeerData(){
+function getRandom() {
+    
+    //clears text fields
+    $('#beerTitle').text(' ');
+    $('#beerDescription').text(' ');
+
+    let punkApiRandom = "https://api.punkapi.com/v2/beers/random" 
     fetch (punkApiRandom)
     .then (function(response) {
         return response.json()
     })
     .then (function(data) {
-        console.log(data)
+        let beerName = data[0].name; 
+        let beerDescription = data[0].description;
+        let pairing_one = data[0].food_pairing[0];
+        let pairing_two = data[0].food_pairing[1];
+        let pairing_three = data[0].food_pairing[2];
+
+        //sets the beerdescription
+        $('#beerTitle').text(beerName);
+        $('#beerPic').attr("src", getBeerPicture());
+        $('#beerDescription').text(beerDescription);
+
+        //sets the pairing text / image
+        $('#pairing-one-text').text(pairing_one);
+        $('#pairing-one-img').attr("src", getPicture(pairing_one));
+
+        $('#pairing-two-text').text(pairing_two);
+        $('#pairing-two-img').attr("src", getPicture(pairing_two));
+
+        $('#pairing-three-text').text(pairing_three);
+        $('#pairing-three-img').attr("src", getPicture(pairing_three));
+
     })
 }
 
+function getPicture(foodChoice) {
+    //created pexel api call as variable
+    // let foodChoice = "mushroom"
+    let pexel = "https://api.pexels.com/v1/search?query=" + foodChoice
 
-//created pexel api call as variable
-let pexel = "https://api.pexels.com/v1/search?query=" + foodChoice
-
-
- //TODO: create a functiona if #randombutton is selected on the UI, grab the beer and food pairings
-
-//TODO: Pass each food pairing to the Pexels API to grab an image.
-
- //TODO: create a function to use local storage to store and retrieve food pairings 
-
- // id's to be used: #searchbutton, #roulettebutton 
-
- // id, #beerimage. #pairing-one, pairing-two, pairing-three
-function getSearchImage(){
     //calls to pexel API for image search
     fetch (pexel,{
         headers: {Authorization: "FGp7KD2IIxlTtlnSEQw20khyYWikbeox6QBSkS92WV7Wj7UX37T9NDyI"}
@@ -92,6 +102,70 @@ function getSearchImage(){
     })
     //returns data from pexel search and logs in console
     .then (function(data) {
-        console.log(data)
+        let pic = data.photos[0].src.medium;
+        return pic;
     })
 }
+
+//finds a beer picture
+function getBeerPicture() {
+    //calls to pexel API for beerImages
+    let beerURL = "https://api.pexels.com/v1/search?query=beer%20glass"
+    fetch (beerURL,{
+        headers: {Authorization: "FGp7KD2IIxlTtlnSEQw20khyYWikbeox6QBSkS92WV7Wj7UX37T9NDyI"}
+    })
+    .then (function(response) {
+        return response.json()
+    })
+    //returns data from pexel search and logs in console
+    .then (function(beerData) {
+        //finds a random image of a beer
+        let randomNumber =  Math.floor(Math.random() * (15) );
+        let beerPic = beerData.photos[randomNumber].src.medium;
+        return beerPic
+    })
+}
+
+
+
+ //TODO: create a function to use local storage to store and retrieve food pairings 
+
+ //This saves the whole api query under the searched food item.
+ function saveBeerData(foodKey, data){
+    localStorage.setItem(foodKey, JSON.stringify(data))
+    searchedList.push(foodKey)
+    localStorage.setItem(previousSearchesKey, JSON.stringify(searchedList))
+ }
+
+ // Returns data from local storage. If data isn't in local storage, returns -1 instead.
+ function getSavedData(foodKey){
+    let data = localStorage.getItem(foodKey)
+    if(data === null){
+        return -1
+    }
+    return data
+ }
+
+function listSearchedItems(){
+    let section = $('.section')
+    for(i in searchedList){
+        console.log('index: '+i)
+        console.log('item searched: '+searchedList[i])
+        console.log(JSON.parse(getSavedData(searchedList[i])))
+        let beerData = (JSON.parse(getSavedData(searchedList[i])))[0]
+        section.append('<div id="save-'+i+'"></div>')
+        let box = $('#save-'+i)
+        box.append('<image id="saved-beer-'+i+'" src="'+getBeerPicture()+'" alt="saved-beer-'+i+'">')
+        box.append('<div>'+beerData.name+'</div>')
+        box.append('<div>paired with</div>')
+        box.append('<div>'+searchedList[i]+'</div>')
+        box.append('<image id="saved-food-'+i+'" src="'+getPicture(searchedList[i])+'" alt="saved-food-'+i+'">')
+    }
+}
+
+//findFood()
+listSearchedItems()
+
+ // id's to be used: #searchButton, #rouletteButton 
+
+ // id for beer:  #beerImage. #beerTitle, #beerDescription | #pairing-one-text, #pairing-two-text, #pairing-three-text
