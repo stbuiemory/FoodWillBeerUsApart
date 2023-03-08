@@ -40,3 +40,13 @@ fetch (pexel,{
  .then (function(data) {
     console.log(data)
  })
+
+ //TODO: create a functiona if #randombutton is selected on the UI, grab the beer and food pairings
+
+//TODO: Pass each food pairing to the Pexels API to grab an image.
+
+ //TODO: create a function to use local storage to store and retrieve food pairings 
+
+ // id's to be used: #searchbutton, #roulettebutton 
+
+ // id, #beerimage. #pairing-one, pairing-two, pairing-three
