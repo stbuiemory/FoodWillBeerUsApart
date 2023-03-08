@@ -62,7 +62,6 @@ fetch (pexel,{
 //declaring open empty array to store favorites into "pairingFavorite" objects listed in the array
 let favoriteList = []
 
-
 //storing favortieList into local storage - need to create object for "pairingFavorite" in stringify
 //window.localtStorage.setItem(favoriteList);
 window.localStorage.setItem(favoriteList, JSON.stringify(pairingFavorite))
