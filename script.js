@@ -45,7 +45,7 @@ fetch (pexel,{
 
 //TODO: Pass each food pairing to the Pexels API to grab an image.
 
- //TODO: create a function to use local storage to store and retrieve items 
+ //TODO: create a function to use local storage to store and retrieve food pairings 
 
  // id's to be used: #searchbutton, #roulettebutton 
 
