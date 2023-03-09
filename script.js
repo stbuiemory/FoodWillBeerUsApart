@@ -94,9 +94,9 @@ let favoriteList = []
 
 //stored favorite object
 let storedFavorite = {
-    beername: "",
-    beerimage: "",
-    foodname: "",
+    beername: beerName,
+    beerimage: beerPic,
+    foodName: "",
     foodImage: "",
 }
 
@@ -106,15 +106,10 @@ window.localStorage.setItem(favoriteList, JSON.stringify(favoriteList))
 //parsing favoriteList from storage to read data
 storedFavorites = JSON.parse(window.localStorage.getItem(favoriteList));
 
-
-
-
  //TODO: create a function to use local storage to store and retrieve food pairings 
-
  // id's to be used: #searchButton, #rouletteButton 
- $(#searhbtn).click(findFood)
+ $(#searhbutton).click(findFood)
 
- $(#roulettebtn).click(getRandom)
-
+ $(#roulettebutton).click(getRandom)
 
  // id for beer:  #beerImage. #beerTitle, #beerDescription | #pairing-one-text, #pairing-two-text, #pairing-three-text
