@@ -12,38 +12,38 @@ const baseSearchURL = "https://api.punkapi.com/v2/beers?per_page=1&food="
 let punkApiFood = baseSearchURL + foodChoice 
 
 //this will set up the initial form for the user
-function setUpHomepage(){
-    container.append('<form id="search-prompt">')
-    let form = $('#search-prompt')
-    console.log(form)
-    form.append('<p> Find your food </p>')
-    form.append('<input type="text" placeholder="food name" id="search-name">')
-    form.append('<input type="button" value="submit" id="search">')
-    form.append('<p>or</p>')
-    form.append('<input type="button" value="submit" id="random">')
-    //onclick for search button
-    form.on('click', '#search', function(event){
-        let searchForm = $(event.target).parent('#search-prompt')
-        let textArea = searchForm.children("#search-name")
-        let criteria = (((textArea.val()).trim()).toLowerCase()).replace(/\s+/, '+')
-        console.log(criteria)
-        if(criteria===''){
-            console.log('Must have user input.')
-            return
-        }
-        callBeerData(criteria)
-    })
-    //onclick for random button
-    form.on('click', '#random', function(){
-        getRandBeerData()
-    })
-}
+// function setUpHomepage(){
+//     container.append('<form id="search-prompt">')
+//     let form = $('#search-prompt')
+//     console.log(form)
+//     form.append('<p> Find your food </p>')
+//     form.append('<input type="text" placeholder="food name" id="search-name">')
+//     form.append('<input type="button" value="submit" id="search">')
+//     form.append('<p>or</p>')
+//     form.append('<input type="button" value="submit" id="random">')
+//     //onclick for search button
+//     form.on('click', '#search', function(event){
+//         let searchForm = $(event.target).parent('#search-prompt')
+//         let textArea = searchForm.children("#search-name")
+//         let criteria = (((textArea.val()).trim()).toLowerCase()).replace(/\s+/, '+')
+//         console.log(criteria)
+//         if(criteria===''){
+//             console.log('Must have user input.')
+//             return
+//         }
+//         callBeerData(criteria)
+//     })
+//     //onclick for random button
+//     form.on('click', '#random', function(){
+//         getRandBeerData()
+//     })
+// }
 
-function deconstructHomepage(){
-    let form = $('#search-prompt')
-    form.remove()
-}
-setUpHomepage()
+// function deconstructHomepage(){
+//     let form = $('#search-prompt')
+//     form.remove()
+// }
+// setUpHomepage()
 
 //calls to PunkAPI for beer data for food choice
 function callBeerData(criteria){

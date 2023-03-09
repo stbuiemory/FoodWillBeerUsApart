@@ -13,7 +13,10 @@
     .title {
       color: black
     }
+    .hidden {
+      display: none;
 
+    }
     .popup {
       position: fixed;
       top: 0;
@@ -99,13 +102,19 @@
   <!-- <div class="container"> -->
     <div class="popup">
       <div class="popup__content">
+        <div class="notification hidden is-danger">
+          <h1>come back later</h1>
+        </div>
+
         <!-- <div class="has-text-centered"></div> -->
         <!-- <section class="modal-card-body is-centered"> -->
         <h2>Are you 21 years of age or older?</h2>
         <p>Please confirm that you are of legal drinking age.</p>
         <!-- </section> -->
         <!-- <div class="columns is-centered"></div> -->
-        <button class="popup__button" onclick="confirmPopup()">Yes or No</button>
+        <button class="popup__button" onclick="confirmPopup()">Yes</button>
+        <button class="popup__button" onclick="noAnswer()">No</button>
+
       </div>
     </div>
   <!-- </div> -->
@@ -135,16 +144,18 @@ function confirmPopup() {
   <script src="./script.js"></script>
   <script>
     function confirmPopup() {
-      //           var result = confirm("Do you want to continue?");
-      //   if (result == true) {
-      //     alert("You clicked Yes");
-      //   } else {
-      //     alert("You clicked No");
-      //   }
-      // }
+         
+      
 
       // Hide the pop-up window
       document.querySelector('.popup').style.display = 'none';
+    }
+    function noAnswer(){
+      document.querySelector('.notification').style.display = 'block';
+      setTimeout(()=>{
+        document.querySelector('.notification').style.display = 'none';
+      },1000)
+
     }
   </script>
 </body>
