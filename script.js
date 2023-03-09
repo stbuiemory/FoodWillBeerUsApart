@@ -148,12 +148,14 @@ function getBeerPicture() {
 
 function listSearchedItems(){
     let section = $('.section')
+    section.append('<div class="save-list"></div>')
+    let saveList = $('.save-list')
     for(i in searchedList){
         console.log('index: '+i)
         console.log('item searched: '+searchedList[i])
         console.log(JSON.parse(getSavedData(searchedList[i])))
         let beerData = (JSON.parse(getSavedData(searchedList[i])))[0]
-        section.append('<div id="save-'+i+'"></div>')
+        saveList.append('<div id="save-'+i+'"></div>')
         let box = $('#save-'+i)
         box.append('<image id="saved-beer-'+i+'" src="'+getBeerPicture()+'" alt="saved-beer-'+i+'">')
         box.append('<div>'+beerData.name+'</div>')
@@ -163,8 +165,46 @@ function listSearchedItems(){
     }
 }
 
+function removeSearchedItems(){
+    $('.save-list').remove()
+}
+
+var toggleSavePairing = function(event){
+    event.preventDefault
+    // get specific heart button id
+    let heart = $(event.target)
+    // takes data stored in heart button's 'data' attributes
+    let food = heart.attr("data-food")
+    let foodImg = heart.attr("data-foodImg")
+    let beer = heart.attr("data-beer")
+    let beerImg = heart.attr("data-beerImg")
+    // checks if the var is saved
+    let isSaved = searchedList.includes(food)
+    // acts based on wether the button was clicked or not
+    if(isSaved){
+        let index = searchedList.indexOf(food)
+        searchedList = searchedList.splice(index, 1)
+        localStorage.setItem(previousSearchesKey, JSON.stringify(searchedList))
+        // Todo: add heart color change
+    }else{
+        let info = {food:food, foodImg:foodImg, beer:beer, beerImg:beerImg}
+        localStorage.setItem(food, JSON.stringify(info))
+        // Todo: add heart color change
+    }
+}
+
+var toggleSavedPairings = function(){
+    let container = $(".save-list")
+    if($.trim(container.html()).length===0){
+        listSearchedItems()
+    }else{
+        removeSearchedItems()
+    }
+}
+
 //findFood()
-listSearchedItems()
+
+//listSearchedItems()
 
  // id's to be used: #searchButton, #rouletteButton 
 
