@@ -25,7 +25,7 @@ function findFood() {
             
             //sets the beerdescription
             $('#beerTitle').text(beerName);
-            $('#beerDescription').text(beerDecription);
+            $('#beerDescription').text(beerDescription);
             
         })
 }
@@ -89,30 +89,22 @@ function getBeerPicture() {
 
 //TODO: Pass each food pairing to the Pexels API to grab an image.
 
- //TODO: create a function to use local storage to store and retrieve items 
-//setItem(): add key and value to localStorage
-//getItem(): get items from local storage
-//removeItem(): remove item from local storage
-//clear(): clear all local storage
-
-//aray object should include: beer image, beer name, food name, food image
-/*EXAMPLE Object 
-{
-    beerName: "EXAMPLE",
-    beerImage: "EXAMPLE.IMG.LINK",
-    foodName: "EXAMPLE",
-    foodImage: "EXAMPLE.IMG.LINK",
-}*/
 //declaring open empty array to store favorites into "pairingFavorite" objects listed in the array
 let favoriteList = []
 
-//storing favortieList into local storage - need to create object for "pairingFavorite" in stringify
-//window.localtStorage.setItem(favoriteList);
-window.localStorage.setItem(favoriteList, JSON.stringify(pairingFavorite))
+//stored favorite object
+let storedFavorite = {
+    beername: "",
+    beerimage: "",
+    foodname: "",
+    foodImage: "",
+}
+
+//storing favortieList into local storage in stringify form
+window.localStorage.setItem(favoriteList, JSON.stringify(favoriteList))
 
 //parsing favoriteList from storage to read data
-//window.localStorage.getItem(favoriteList);
-JSON.parse(window.localStorage.getItem(favoriteList));
+storedFavorites = JSON.parse(window.localStorage.getItem(favoriteList));
 
 
 
@@ -120,5 +112,9 @@ JSON.parse(window.localStorage.getItem(favoriteList));
  //TODO: create a function to use local storage to store and retrieve food pairings 
 
  // id's to be used: #searchButton, #rouletteButton 
+ $(#searhbtn).click(findFood)
+
+ $(#roulettebtn).click(getRandom)
+
 
  // id for beer:  #beerImage. #beerTitle, #beerDescription | #pairing-one-text, #pairing-two-text, #pairing-three-text
