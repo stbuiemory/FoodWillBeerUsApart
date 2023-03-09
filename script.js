@@ -204,7 +204,7 @@ var toggleSavedPairings = function(){
 
 //findFood()
 
-//listSearchedItems()
+listSearchedItems()
 
  // id's to be used: #searchButton, #rouletteButton 
 
