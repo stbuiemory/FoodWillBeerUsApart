@@ -8,7 +8,8 @@ console.log(container)
 //https://api.punkapi.com/v2/beers
 //the below create variables for PunkAPI call for random and food choice each return 1 example
 let punkApiRandom = "https://api.punkapi.com/v2/beers/random" 
-let punkApiFood = "https://api.punkapi.com/v2/beers?per_page=1&food=" + foodChoice 
+const baseSearchURL = "https://api.punkapi.com/v2/beers?per_page=1&food="
+let punkApiFood = baseSearchURL + foodChoice 
 
 //this will set up the initial form for the user
 function setUpHomepage(){
@@ -16,16 +17,38 @@ function setUpHomepage(){
     let form = $('#search-prompt')
     console.log(form)
     form.append('<p> Find your food </p>')
-    form.append('<input type="text" placeholder="food name">')
+    form.append('<input type="text" placeholder="food name" id="search-name">')
     form.append('<input type="button" value="submit" id="search">')
     form.append('<p>or</p>')
     form.append('<input type="button" value="submit" id="random">')
+    //onclick for search button
+    form.on('click', '#search', function(event){
+        let searchForm = $(event.target).parent('#search-prompt')
+        let textArea = searchForm.children("#search-name")
+        let criteria = (((textArea.val()).trim()).toLowerCase()).replace(/\s+/, '+')
+        console.log(criteria)
+        if(criteria===''){
+            console.log('Must have user input.')
+            return
+        }
+        callBeerData(criteria)
+    })
+    //onclick for random button
+    form.on('click', '#random', function(){
+        getRandBeerData()
+    })
+}
+
+function deconstructHomepage(){
+    let form = $('#search-prompt')
+    form.remove()
 }
 setUpHomepage()
 
 //calls to PunkAPI for beer data for food choice
-function callBeerData(){
-    fetch (punkApiFood)
+function callBeerData(criteria){
+    let url = baseSearchURL+criteria
+    fetch (url)
     .then (function(response) {
         return response.json()
     })
