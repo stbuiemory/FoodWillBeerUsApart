@@ -61,6 +61,9 @@ PexelAPI
 API URL: https://www.pexels.com/api/documentation/#
 
 
+Attributions:  
+Flaticon URL: https://www.flaticon.com/free-icons/
+
 
 ## License
 
