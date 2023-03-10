@@ -24,7 +24,7 @@ h5 {
 /* Border around beer section */
 .column1 {
   border: 8px solid;
-  padding: 10px;
+  padding: 100px;
   border-image: repeating-linear-gradient(to bottom right, #33475b, #c54a21, #feb204, rgb(255, 122, 89)) 20;
   }
 
