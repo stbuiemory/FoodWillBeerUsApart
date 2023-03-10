@@ -127,7 +127,35 @@ function getBeerPicture() {
 
 
 
- //TODO: create a functiona if #randombutton is selected on the UI, grab the beer and food pairings
+ 
+
+//TODO: Pass each food pairing to the Pexels API to grab an image.
+
+//declaring open empty array to store favorites into "pairingFavorite" objects listed in the array
+let favoriteList = []
+
+//stored favorite object
+let storedFavorite = {
+    beername: beerName,
+    beerimage: beerPic,
+    foodName: "",
+    foodImage: "",
+}
+
+//storing favortieList into local storage in stringify form
+window.localStorage.setItem(favoriteList, JSON.stringify(favoriteList))
+
+//parsing favoriteList from storage to read data
+storedFavorites = JSON.parse(window.localStorage.getItem(favoriteList));
+
+ //TODO: create a function to use local storage to store and retrieve food pairings 
+ // id's to be used: #searchButton, #rouletteButton 
+ $('#searchbutton').click(findFood)
+
+ $('#roulettebutton').click(getRandom)
+
+
+//TODO: create a functiona if #randombutton is selected on the UI, grab the beer and food pairings
 
  //This saves the whole api query under the searched food item.
  function saveBeerData(foodKey, data){
@@ -192,6 +220,7 @@ var toggleSavePairing = function(event){
     }
 }
 
+
 var toggleSavedPairings = function(){
     let container = $(".save-list")
     if($.trim(container.html()).length===0){
@@ -205,30 +234,6 @@ var toggleSavedPairings = function(){
 
 listSearchedItems()
 
-//TODO: Pass each food pairing to the Pexels API to grab an image.
-
-//declaring open empty array to store favorites into "pairingFavorite" objects listed in the array
-let favoriteList = []
-
-//stored favorite object
-let storedFavorite = {
-    beername: beerName,
-    beerimage: beerPic,
-    foodName: "",
-    foodImage: "",
-}
-
-//storing favortieList into local storage in stringify form
-window.localStorage.setItem(favoriteList, JSON.stringify(favoriteList))
-
-//parsing favoriteList from storage to read data
-storedFavorites = JSON.parse(window.localStorage.getItem(favoriteList));
-
- //TODO: create a function to use local storage to store and retrieve food pairings 
- // id's to be used: #searchButton, #rouletteButton 
- $('#searhbutton').click(findFood)
-
- $('#roulettebutton').click(getRandom)
 
  //add
 
