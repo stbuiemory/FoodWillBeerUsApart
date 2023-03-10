@@ -146,4 +146,6 @@ storedFavorites = JSON.parse(window.localStorage.getItem(favoriteList));
 
  $(#roulettebutton).click(getRandom)
 
+ //add
+
  // id for beer:  #beerImage. #beerTitle, #beerDescription | #pairing-one-text, #pairing-two-text, #pairing-three-text
