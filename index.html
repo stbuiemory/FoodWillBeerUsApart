@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,12 +9,22 @@
   <link href="https://fonts.googleapis.com/css2?family=Arvo:wght@700&family=Raleway&display=swap" rel="stylesheet">
   <style>
     /* CSS styles for the pop-up window */
-    .title {
-      color: black
-    }
+    .container img {
+      /* position: normal; */
+      width: 61px;
+      height: 61px;
+      /* margin-left: 100px;
+      margin-top: 100px; */
+      /* display: block;
+      margin: 0 auto;  */
+      position: absolute;
+      top: 100px; /* adjust as needed */
+      left: 0;
+      right: 0;
+      margin: auto;
+    }   
     .hidden {
       display: none;
-
     }
     .popup {
       position: fixed;
@@ -27,16 +36,30 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      /* text-align: center */
     }
 
     .popup__content {
       background: #C54A21;
-      padding: 90px;
+      padding: 70px;
       border-radius: 10px;
       box-shadow: 0 0 10px black;
       max-width: 467px;
-      max-height: 700px;
+      max-height: 200px;
       text-align: center;
+      color: white;
+      font-family: Raleway;
+      font-style: normal;
+      font-size: 32px;
+      line-height: 37.57px;
+      margin-top: 42px;
+      margin-left: 78px;
+      /* top: 20px; */
+      /* left: 0px;
+      right: 0px */
+      /* display: flex; */
+      /* align-items: center; */
+      /* justify-content: center */
     }
 
     .popup__button {
@@ -48,18 +71,6 @@
       cursor: pointer;
       font-size: 15px;
     }
-
-    /* .popup__content {
-      font-size: 10px;
-      max-width: 312px;
-      max-height: 43px;
-      position: top;
-      text-align: center;
-      left: 78px;
-      top: 42px;
-      color: white
-    } */
-
     footer {
       border-top: solid 1px;
       background: #663C20;
@@ -75,21 +86,24 @@
           <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css" rel="stylesheet" />
 
 </head>
-
 <body>
   <section class="section">
-    <div class="hero-body">
+    <!-- <div class="hero-body"> -->
       <div class="container">
         <div class='column is-one-quarter'>
-          <div class='card equal-height'>
+          <!-- <div class='card equal-height'> -->
             <div class="columns is-centered">
               <div class="column is-half">
-                <figure class="image is-centered">
+              <div class="beer_image"></div>
+                <!-- <figure class="image is-centered"> -->
                   <img src="./beer logo.png" alt="beer logo" />
-                </figure>
+                <!-- </figure> -->
               </div>
             </div>
-          </div>
+          <!-- </div> -->
+        </div>
+      </div>
+    <!-- </div> -->
           <div class="container">
             <h1 class="title has-text-centered">
               Food will Beer us Apart</h1>
@@ -99,40 +113,16 @@
           </div>
         </div>
   </section>
-  <!-- <div class="container"> -->
     <div class="popup">
       <div class="popup__content">
         <div class="notification hidden is-danger">
           <h1>come back later</h1>
         </div>
-
-        <!-- <div class="has-text-centered"></div> -->
-        <!-- <section class="modal-card-body is-centered"> -->
-        <h2>Are you 21 years of age or older?</h2>
-        <p>Please confirm that you are of legal drinking age.</p>
-        <!-- </section> -->
-        <!-- <div class="columns is-centered"></div> -->
+        <h2>Are you 21 + or older?</h2>
         <button class="popup__button" onclick="confirmPopup()">Yes</button>
         <button class="popup__button" onclick="noAnswer()">No</button>
-
       </div>
     </div>
-  <!-- </div> -->
-
-
-
-  <!-- <button onclick="confirmPopup()">Open Yes or No Pop-up</button> -->
-
-  <!-- <script>
-function confirmPopup() {
-  var result = confirm("Do you want to continue?");
-  if (result == true) {
-    alert("You clicked OK");
-  } else {
-    alert("You clicked Cancel");
-  }
-}
-</script> -->
 
   <footer>
     <p class="has-text-white has-background-brown">
@@ -144,10 +134,6 @@ function confirmPopup() {
   <script src="./script.js"></script>
   <script>
     function confirmPopup() {
-         
-      
-
-      // Hide the pop-up window
       document.querySelector('.popup').style.display = 'none';
     }
     function noAnswer(){
@@ -155,7 +141,6 @@ function confirmPopup() {
       setTimeout(()=>{
         document.querySelector('.notification').style.display = 'none';
       },1000)
-
     }
   </script>
 </body>
