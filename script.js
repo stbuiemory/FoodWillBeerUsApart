@@ -1,4 +1,12 @@
-
+const baseSearchURL = "https://api.punkapi.com/v2/beers?per_page=1&food="
+const previousSearchesKey = "previous searches"
+let searchedList = localStorage.getItem(previousSearchesKey)
+if(searchedList === null){
+    searchedList = []
+    localStorage.setItem(previousSearchesKey, JSON.stringify(searchedList))
+}else{
+    searchedList = JSON.parse(searchedList)
+}
 //food choice should be user input for food
 function findFood() {
     let foodChoice = "mushroom"
@@ -10,7 +18,7 @@ function findFood() {
     //PUNK API
     //https://api.punkapi.com/v2/beers
     //the below create variables for PunkAPI call for random and food choice each return 1 example
-    let punkApiFood = "https://api.punkapi.com/v2/beers?per_page=1&food=" + foodChoice 
+    let punkApiFood = baseSearchURL + foodChoice 
     
     //calls to PunkAPI for beer data for food choice
     fetch (punkApiFood)
@@ -121,6 +129,82 @@ function getBeerPicture() {
 
  //TODO: create a functiona if #randombutton is selected on the UI, grab the beer and food pairings
 
+ //This saves the whole api query under the searched food item.
+ function saveBeerData(foodKey, data){
+    localStorage.setItem(foodKey, JSON.stringify(data))
+    searchedList.push(foodKey)
+    localStorage.setItem(previousSearchesKey, JSON.stringify(searchedList))
+ }
+
+ // Returns data from local storage. If data isn't in local storage, returns -1 instead.
+ function getSavedData(foodKey){
+    let data = localStorage.getItem(foodKey)
+    if(data === null){
+        return -1
+    }
+    return data
+ }
+
+function listSearchedItems(){
+    let section = $('.section')
+    section.append('<div class="save-list"></div>')
+    let saveList = $('.save-list')
+    for(i in searchedList){
+        console.log('index: '+i)
+        console.log('item searched: '+searchedList[i])
+        console.log(JSON.parse(getSavedData(searchedList[i])))
+        let beerData = (JSON.parse(getSavedData(searchedList[i])))[0]
+        saveList.append('<div id="save-'+i+'"></div>')
+        let box = $('#save-'+i)
+        box.append('<image id="saved-beer-'+i+'" src="'+getBeerPicture()+'" alt="saved-beer-'+i+'">')
+        box.append('<div>'+beerData.name+'</div>')
+        box.append('<div>paired with</div>')
+        box.append('<div>'+searchedList[i]+'</div>')
+        box.append('<image id="saved-food-'+i+'" src="'+getPicture(searchedList[i])+'" alt="saved-food-'+i+'">')
+    }
+}
+
+function removeSearchedItems(){
+    $('.save-list').remove()
+}
+
+var toggleSavePairing = function(event){
+    event.preventDefault
+    // get specific heart button id
+    let heart = $(event.target)
+    // takes data stored in heart button's 'data' attributes
+    let food = heart.attr("data-food")
+    let foodImg = heart.attr("data-foodImg")
+    let beer = heart.attr("data-beer")
+    let beerImg = heart.attr("data-beerImg")
+    // checks if the var is saved
+    let isSaved = searchedList.includes(food)
+    // acts based on wether the button was clicked or not
+    if(isSaved){
+        let index = searchedList.indexOf(food)
+        searchedList = searchedList.splice(index, 1)
+        localStorage.setItem(previousSearchesKey, JSON.stringify(searchedList))
+        // Todo: add heart color change
+    }else{
+        let info = {food:food, foodImg:foodImg, beer:beer, beerImg:beerImg}
+        localStorage.setItem(food, JSON.stringify(info))
+        // Todo: add heart color change
+    }
+}
+
+var toggleSavedPairings = function(){
+    let container = $(".save-list")
+    if($.trim(container.html()).length===0){
+        listSearchedItems()
+    }else{
+        removeSearchedItems()
+    }
+}
+
+//findFood()
+
+listSearchedItems()
+
 //TODO: Pass each food pairing to the Pexels API to grab an image.
 
 //declaring open empty array to store favorites into "pairingFavorite" objects listed in the array
@@ -142,9 +226,9 @@ storedFavorites = JSON.parse(window.localStorage.getItem(favoriteList));
 
  //TODO: create a function to use local storage to store and retrieve food pairings 
  // id's to be used: #searchButton, #rouletteButton 
- $(#searhbutton).click(findFood)
+ $('#searhbutton').click(findFood)
 
- $(#roulettebutton).click(getRandom)
+ $('#roulettebutton').click(getRandom)
 
  //add
 
