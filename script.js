@@ -172,15 +172,15 @@ async function listSearchedItems(){
         console.log('item searched: '+searchedList[i])
         console.log(JSON.parse(getSavedData(searchedList[i])))
         let beerData = (JSON.parse(getSavedData(searchedList[i])))[0]
-        saveList.append('<div id="save-'+i+'"></div>')
+        saveList.append('<div id="save-'+i+'" class="columns"></div>')
         let box = $('#save-'+i)
-        box.append('<image id="saved-beer-'+i+'" src="" alt="saved-beer-'+i+'">')
+        box.append('<image id="saved-beer-'+i+'" src="" alt="saved-beer-'+i+'" class="column" style="width:250px; height:250px;">')
         
         //console.log(getBeerPicture())
-        box.append('<div>'+beerData.name+'</div>')
-        box.append('<div>paired with</div>')
-        box.append('<div>'+searchedList[i]+'</div>')
-        box.append('<image id="saved-food-'+i+'" src="" alt="saved-food-'+i+'">')
+        box.append('<div class="column">'+beerData.name+'</div>')
+        box.append('<div class="column">paired with</div>')
+        box.append('<div class="column">'+searchedList[i]+'</div>')
+        box.append('<image id="saved-food-'+i+'" src="" alt="saved-food-'+i+'" class="column" style="width:250px; height:250px;">')
         getPicture(searchedList[i])
     }
     getBeerPicture()
@@ -215,21 +215,21 @@ var toggleSavePairing = function(event){
 }
 
 
-var toggleSavedPairings = function(){
-    let container = $(".save-list")
-    if($.trim(container.html()).length===0){
-        listSearchedItems()
-    }else{
-        removeSearchedItems()
-    }
+var takeToSavedPairings = function(event){
+    destroyHomepageItems()
+    listSearchedItems()
 }
 
 function destroyHomepageItems(){
     console.log($('#multi-purpose'))
     $('#multi-purpose').children().remove()
 }
-destroyHomepageItems()
-listSearchedItems()
+
+$('#saved-pairing-link').on('click', takeToSavedPairings)
+
+// destroyHomepageItems()
+// listSearchedItems()
+
 //findFood()
 
 //listSearchedItems()
