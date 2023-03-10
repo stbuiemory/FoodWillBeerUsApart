@@ -1,37 +1,42 @@
+/* Why isn't font family working? */
 * {
     background-color: #F5F5F5;
-    font-family: 
-}
+  }
 
+/* Changes the text color when user hovers over homepage, saved results, or food pairing title */
 a:hover {
     color: #c54a21;
   }
 
-/* Styling for top nav bar */
+/* Nav bar */
 h3:hover {
-    color: white;
-    background-image: url('./beerfoam.jpg');
-  }
-
-/* Heart for saved pairing */
-.fa-heart:hover, .fa-heart:focus {
-    color: red;
-  }
-  
-.footer {
-  background-color: #F5F5F5;
+  color: #c54a21;
+  background-image: url('./animated_beer_foam.gif');
+  border-radius: 15%;
+  overflow: hidden;
 }
 
-/* Image for footer - not working*/
-.hero-background {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-  background-image: url('./animated_beer_foam.gif');
-  background-size: cover;
+/* Styling for text above search box */
+h5 {
+  font-weight: bold;
+}
+
+/* Border around beer section */
+.column1 {
+  border: 8px solid;
+  padding: 10px;
+  border-image: repeating-linear-gradient(to bottom right, #33475b, #c54a21, #feb204, rgb(255, 122, 89)) 20;
+  }
+
+/* Border around food section */
+.column2 {
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 4px 4px #feb204, 8px 8px #c54a21, 12px 12px #334758;
+}
+
+.footer {
+  background-color: #F5F5F5;
 }
 
 .navbar {
