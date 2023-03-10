@@ -22,7 +22,7 @@ h3:hover {
   background-color: #F5F5F5;
 }
 
-/* Image for footer */
+/* Image for footer - not working*/
 .hero-background {
   position: absolute;
   top: 0;
@@ -34,6 +34,6 @@ h3:hover {
   background-size: cover;
 }
 
-.rows {
-  background-color: #c54a21;
+.navbar {
+  background-color: #F5F5F5;
 }

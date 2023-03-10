@@ -16,149 +16,143 @@
   </head>
 
   <body>
-    <!-- Top Nav Bar -->
-    <!-- NEED TO ADD URL OF HOMEPAGE AND REPLACE LOGO -->
-    <div class="navbar-start">
-        <div class="is-flex is-align-items-center">
-          <section class="image is-64x64">
-            <img class="is-rounded" src="./assets/starterlogo.png" alt="Placeholder_Logo">
-          </section>
+    <!-- Nav Bar -->
+    <!-- NEED TO ADD URLS TO HOMEPAGE AND SEARCH RESULTS AND REPLACE LOGO -->
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="https://bulma.io">
+                <img class="is-rounded" src="./assets/starterlogo.png" alt="Placeholder_Logo">
+            </a>
             <a href="url-of-another-page.html">
-                <h3 class="title is-4 py-5 ml-3">Food Will Beer Us Apart
-
-                </h3>
+                <h3 class="title is-4 py-6">Food Will Beer Us Apart</h3>
             </a>
         </div>
-    </div>
-    <!-- Bottom Nav Bar -->
-    <div class="navbar-end">
-        <a href="url-of-another-page.html">
-            <h3 class="title is-4 mr-6">Saved Pairings
-            </h3>
-        </a>
-    </div>
-              
+        
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <a href="url-of-another-page.html">
+                    <h3 class="is-4 py-5 mx-3">Saved Results</h3>
+                </a>
+            </div>
+        </div>
+    </nav>
   
     <!-- Search Bar -->
-    <div class="container m-2">
+    <div class="container">
         <div class="columns is-centered">
           <div class="column is-half">
-            <div class="field has-addons px-6">
-              <div class="control">
+            <div class="control mt-3">
+                <h5 pb-3>Find Your Food</h5>
                 <input class="input" type="text" placeholder="Search">
-              </div>
-              <div class="buttons">
-                <button class="button is-info has-background-warning-dark">Search</button>
-                <button class="button is-info has-background-warning has-text-warning-dark">Roulette Pick</button>
+            </div>
+              <div class="buttons is-centered mt-3">
+                <button id="searchButton" class="button is-info has-background-warning-dark">Search</button>
+                <button id="rouletteButton" class="button is-info has-background-warning has-text-warning-dark">Roulette Pick</button>
               </div>
             </div>
           </div>
-        </div>
       </div>
-      
       
     <!-- Beer and Food Section -->
     <div class="selections py-6 px-6">
-            <div class="columns is-justify-content-space-between">
-                <!-- Beer Description -->
-                <div class="column">
-                    <section class="columns">
-                        <div class="container">
-                            <div class="column1">
-                                <img class="image is-4by4" src="./assets/beer_description_placeholder.jpg" alt="beer description placeholder">
-                                <p>Our flagship beer that kick started the craft beer revolution. This is James and Martin's 
+        <div class="columns is-justify-content-space-between">
+            <!-- Beer Description -->
+            <div class="column">
+                <section class="columns">
+                    <div class="container">
+                        <div class="is-two-fifths">
+                            <h1 id="beerTitle" class="mb-3">Beer Title</h1>
+                            <img id="beerImage" class="image is-4by4" src="./assets/beer_description_placeholder.jpg" alt="beer description placeholder">
+                            <p id="beerDescription" class="column mt-3 is-two-fifths">Our flagship beer that kick started the craft beer revolution. This is James and Martin's 
                                 original take on an American IPA, subverted with punchy New Zealand hops. Layered with new 
                                 world hops to create an all-out riot of grapefruit, pineapple and lychee before a spiky, 
                                 mouth-puckering bitter finish
-                                </p>
-                                <p>While it may surprise you, this version of Punk IPA isn't dry hopped but still packs a punch! 
-                                To make the best of the aroma hops make sure they are fully submerged and add them just before
-                                knock out for an intense hop hit.
-                                </p>
-                            </div>
+                            </p>
                         </div>
-                    </section>
-                </div>
+                    </div>
+                </section>
+            </div>
 
-                <!-- Pairings -->
-                <div class="column">
-                    <section class="pairing description">
-                        <div class="container">
-                            <div class="column2">
-                                <div class="rows">
-                                        <div class="row is-one-third">
-                                            <div class="media">
-                                                <figure class="media-left">
-                                                    <p class="image is-2by2">
-                                                        <img src="./assets/food_pairing1_placeholder.jpg" alt="pairing 1 placeholder">
-                                                    </p>
-                                                </figure>
-                                                <div class="media-content ml-5">
-                                                    <a href="url-of-another-page.html">
-                                                        <p>Chicken Fajitas</p>
-                                                    </a>
-                                                        <p>Chicken fajitas are an easy and flavorful weeknight meal. A classic Mexican recipe, 
-                                                        juicy chicken is seasoned, seared and cooked to perfection, then tossed with sauteed 
-                                                        bell peppers and onions. A squeeze of fresh lime adds a punch of flavor and the chicken 
-                                                        fajitas are served with warm tortillas and toppings. You can’t beat this healthy family 
-                                                        favorite recipe.
-                                                        </p>
-                                                        <div style="display: flex; justify-content: right; align-items: center;">
-                                                            <p class="mr-3">Save this Pairing</p>
-                                                            <img class="image is-32x32 mr-1" src="./assets/save favorite before.png" onclick="changeImage(this)" data-value="Change" id="myImg">
-                                                        </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    <div class="row is-one-third">
+            <!-- Pairings -->
+            <div class="column">
+                <section class="pairing description">
+                    <div class="container">
+                        <div class="column2">
+                            <div class="rows">
+                                    <div class="row is-one-third my-3">
                                         <div class="media">
                                             <figure class="media-left">
                                                 <p class="image is-2by2">
-                                                    <img src="./assets/food_pairing2_placeholder.jpg" alt="pairing 2 placeholder">
+                                                        <img id= "#pairing-one-img" src="./assets/food_pairing1_placeholder.jpg" alt="pairing 1 placeholder">
                                                 </p>
                                             </figure>
-                                                <div class="media-content ml-5">
-                                                    <a href="url-of-another-page.html">
-                                                        <p>Garlic Seasoned Fries</p>   
-                                                    </a>
-                                                        <p>Our Brewpub Garlic Fries Seasoning, with the pungent aroma and flavor of garlic at the front of this blend, 
-                                                            is a compendium of kitchen aromatics and a shortcut to great-tasting food. Blended with garlic, onion, salt, 
-                                                            and white pepper, this blend is sleek and savory. The garlic comes forward first, and then this blend presents 
-                                                            a balanced showcase of salt and onion, kept in line by the clean, straightforward burn of white pepper. This 
-                                                            seasoning blend is mixed in small batches in our facility, to protect the flavor and freshness in our products.
-                                                        </p>
-                                                        <div style="display: flex; justify-content: right; align-items: center;">
-                                                            <p class="mr-3">Save this Pairing</p>
-                                                            <img class="image is-32x32 mr-1" src="./assets/save favorite before.png" onclick="changeImage2()" data-value="Change" id="myImg2">
-                                                        </div>
+                                            <div class="media-content ml-5">
+                                                <a href="url-of-another-page.html">
+                                                    <p>Chicken Fajitas</p>
+                                                </a>
+                                                    <p>Chicken fajitas are an easy and flavorful weeknight meal. A classic Mexican recipe, 
+                                                    juicy chicken is seasoned, seared and cooked to perfection, then tossed with sauteed 
+                                                    bell peppers and onions. A squeeze of fresh lime adds a punch of flavor and the chicken 
+                                                    fajitas are served with warm tortillas and toppings. You can’t beat this healthy family 
+                                                    favorite recipe.
+                                                    </p>
+                                                <div style="display: flex; justify-content: right; align-items: center;">
+                                                    <p class="mr-3">Save this Pairing</p>
+                                                    <img class="image is-32x32 mr-1" src="./assets/save favorite before.png" onclick="changeImage(this)" data-value="Change" id="myImg">
                                                 </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="row is-one-third">
-                                    <div class="media">
-                                        <figure class="media-left">
-                                            <p class="image is-2by2">
-                                                <img src="./assets/food_pairing_dessert_placeholder.jpg" alt="pairing 3 placeholder">
-                                            </p>
-                                        </figure>
+                                    <div class="row is-one-third my-3">
+                                        <div class="media">
+                                            <figure class="media-left">
+                                                <p class="image is-2by2">
+                                                    <img id= "#pairing-twp-img"  src="./assets/food_pairing2_placeholder.jpg" alt="pairing 2 placeholder">
+                                                </p>
+                                            </figure>
+                                            <div class="media-content ml-5">
+                                                <a href="url-of-another-page.html">
+                                                    <p>Garlic Seasoned Fries</p>   
+                                                </a>
+                                                    <p>Our Brewpub Garlic Fries Seasoning, with the pungent aroma and flavor of garlic at the front of this blend, 
+                                                        is a compendium of kitchen aromatics and a shortcut to great-tasting food. Blended with garlic, onion, salt, 
+                                                        and white pepper, this blend is sleek and savory. The garlic comes forward first, and then this blend presents 
+                                                        a balanced showcase of salt and onion, kept in line by the clean, straightforward burn of white pepper. This 
+                                                        seasoning blend is mixed in small batches in our facility, to protect the flavor and freshness in our products.
+                                                    </p>
+                                                <div style="display: flex; justify-content: right; align-items: center;">
+                                                    <p class="mr-3">Save this Pairing</p>
+                                                    <img class="image is-32x32 mr-1" src="./assets/save favorite before.png" onclick="changeImage2()" data-value="Change" id="myImg2">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row is-one-third mt-5">
+                                        <div class="media">
+                                            <figure class="media-left">
+                                                <p class="image is-2by2">
+                                                    <img id="#pairing-three-img" src="./assets/food_pairing_dessert_placeholder.jpg" alt="pairing 3 placeholder">
+                                                </p>
+                                            </figure>
                                             <div class="media-content ml-5">
                                                 <a href="url-of-another-page.html">
                                                     <p>Chocolate S'mores Cake</p>
                                                 </a>
-                                                <p>When it comes to summer evenings, one of the best things is a s’more. The graham crackers, the chocolate, the toasty marshmallows 
-                                                – what’s not to love? In this S’mores Cake, all those components come together to make an amazing cake inspired by the tasty classic 
-                                                treat.</p>
+                                                    <p>When it comes to summer evenings, one of the best things is a s’more. The graham crackers, the chocolate, the toasty marshmallows 
+                                                    – what’s not to love? In this S’mores Cake, all those components come together to make an amazing cake inspired by the tasty classic 
+                                                    treat.</p>
                                                 <div style="display: flex; justify-content: right; align-items: center;">
                                                     <p class="mr-3">Save this Pairing</p>
                                                     <img class="image is-32x32 mr-1" src="./assets/save favorite before.png" onclick="changeImage3()" data-value="Change" id="myImg3">
                                                 </div>
                                             </div>
-                                    </div>
+                                        </div>
                                     </div>
                             </div>
                         </div>
-                    </section>
-                </div>       
+                    </div>
+                </section>
+            </div>       
         </div>
     </div>
 
@@ -166,7 +160,7 @@
     <script src="./assets/searchresultspage.js"></script>
 
     <!-- Footer -->
-    <footer class="footer is-small has-paddingless-vertical">
+    <footer class="footer">
         <div class="hero is-primary">
           <div class="hero-body has-background-warning-dark">
             <div class="container has-text-centered">
@@ -175,10 +169,7 @@
               </h1>
             </div>
           </div>
-          <div class="hero-background">
-          </div>
         </div>
-      </footer>      
-      
+      </footer>     
 </body>
 </html>
