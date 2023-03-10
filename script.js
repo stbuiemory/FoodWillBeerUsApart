@@ -38,6 +38,7 @@ function findFood() {
 
             $('#pairing-three-text').text(pairing_three);
             $('#pairing-three-img').attr("src", getPicture(pairing_three));
+            $('#beerDescription').text(beerDescription);
             
         })
 }
@@ -118,8 +119,33 @@ function getBeerPicture() {
 
 
 
- //TODO: create a function to use local storage to store and retrieve food pairings 
+ //TODO: create a functiona if #randombutton is selected on the UI, grab the beer and food pairings
 
+//TODO: Pass each food pairing to the Pexels API to grab an image.
+
+//declaring open empty array to store favorites into "pairingFavorite" objects listed in the array
+let favoriteList = []
+
+//stored favorite object
+let storedFavorite = {
+    beername: beerName,
+    beerimage: beerPic,
+    foodName: "",
+    foodImage: "",
+}
+
+//storing favortieList into local storage in stringify form
+window.localStorage.setItem(favoriteList, JSON.stringify(favoriteList))
+
+//parsing favoriteList from storage to read data
+storedFavorites = JSON.parse(window.localStorage.getItem(favoriteList));
+
+ //TODO: create a function to use local storage to store and retrieve food pairings 
  // id's to be used: #searchButton, #rouletteButton 
+ $(#searhbutton).click(findFood)
+
+ $(#roulettebutton).click(getRandom)
+
+ //add
 
  // id for beer:  #beerImage. #beerTitle, #beerDescription | #pairing-one-text, #pairing-two-text, #pairing-three-text
