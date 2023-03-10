@@ -1,19 +1,14 @@
 /* Why isn't font family working? */
-* {
-    background-color: #F5F5F5;
-  }
 
-/* Changes the text color when user hovers over homepage, saved results, or food pairing title */
+/* Effect when user mouses over nav bar links */
 a:hover {
-    color: #c54a21;
-  }
-
-/* Nav bar */
-h3:hover {
-  color: #c54a21;
   background-image: url('./animated_beer_foam.gif');
-  border-radius: 15%;
+  border-radius: 10%;
   overflow: hidden;
+}
+
+body {
+  background-color: #F5F5F5;
 }
 
 /* Styling for text above search box */
@@ -23,13 +18,17 @@ h5 {
 
 /* Border around beer section */
 .column1 {
+  background-color: #f8c4a3;
+  background-image: linear-gradient(270deg, #f8c4a3 0%, #ffe4b0 33%, #ffffff 66%, #ffffff 100%);
   border: 8px solid;
-  padding: 100px;
+  padding: 10px;
   border-image: repeating-linear-gradient(to bottom right, #33475b, #c54a21, #feb204, rgb(255, 122, 89)) 20;
   }
 
 /* Border around food section */
 .column2 {
+  background-color: #ffcfa8;
+  background-image: linear-gradient(90deg, #ffcfa8 0%, #ffe29d 50%, #ffffff 100%);
   border: 1px solid;
   padding: 10px;
   box-shadow: 4px 4px #feb204, 8px 8px #c54a21, 12px 12px #334758;
@@ -39,6 +38,29 @@ h5 {
   background-color: #F5F5F5;
 }
 
-.navbar {
-  background-color: #F5F5F5;
+/* Resizes the beer image*/
+#beerImage {
+  height: 52vh;
 }
+
+/* Effect when user has mouse over food pairings */
+#food-links:hover p {
+  background-image: url('./animated_beer_foam.gif');
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+
+
+
+
+/* NOT WORKING WELL. NEED TO FIX */
+#beer-links:hover p {
+  background-image: url('./animated_beer_foam.gif');
+  border-radius: 0px;
+  overflow: hidden;
+}
+
+
+
+
