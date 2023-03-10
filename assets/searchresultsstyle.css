@@ -1,0 +1,18 @@
+* {
+    background-color: #F5F5F5;
+    font-family: 
+}
+
+a:hover {
+    color: #c54a21;
+  }
+
+h3:hover {
+    color: white;
+    background-image: url('./beerfoam.jpg');
+  }
+
+  .fa-heart:hover, .fa-heart:focus {
+    color: red;
+  }
+  

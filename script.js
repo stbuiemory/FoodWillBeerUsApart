@@ -84,7 +84,6 @@ function getRandom() {
 
         $('#pairing-three-text').text(pairing_three);
         $('#pairing-three-img').attr("src", getPicture(pairing_three));
-
     })
 }
 
