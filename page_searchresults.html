@@ -50,7 +50,7 @@
       
     <!-- Beer and Food Section -->
     <div class="selections py-6 px-6">
-        <div class="columns is-justify-content-space-between">
+        <div class="columns is-justify-content-space-between" id="multi-purpose">
             <!-- Beer Description -->
             <div class="column">
                 <section class="column1">
@@ -96,7 +96,7 @@
                                                 </p>
                                             <div style="display: flex; justify-content: right; align-items: center;">
                                                 <p class="mr-3 has-text-weight-bold">Save this Pairing</p>
-                                                    <img class="image is-32x32 mr-1" src="./assets/save favorite before.png" onclick="changeImage(this)" data-value="Change" id="myImg">
+                                                    <img class="image is-32x32 mr-1" src="./assets/save favorite before.png" onclick="changeImage(this)" data-value="Change" id="myImg0" data-food="Chicken Fajitas" data-beer="Huerca Cerveza">
                                             </div>
                                         </div>
                                     </div>
@@ -120,7 +120,7 @@
                                             </p>
                                             <div style="display: flex; justify-content: right; align-items: center;">
                                                 <p class="mr-3 has-text-weight-bold">Save this Pairing</p>
-                                                    <img class="image is-32x32 mr-1" src="./assets/save favorite before.png" onclick="changeImage2(this)" data-value="Change" id="myImg2">
+                                                    <img class="image is-32x32 mr-1" src="./assets/save favorite before.png" onclick="changeImage(this)" data-value="Change" id="myImg1" data-food="Garlic Seasoned Fries" data-beer="Huerca Cerveza">
                                             </div>
                                         </div>
                                     </div>
@@ -141,7 +141,7 @@
                                                 treat.</p>
                                             <div style="display: flex; justify-content: right; align-items: center;">
                                                 <p class="mr-3 has-text-weight-bold">Save this Pairing</p>
-                                                    <img class="image is-32x32 mr-1" src="./assets/save favorite before.png" onclick="changeImage3(this)" data-value="Change" id="myImg3">
+                                                    <img class="image is-32x32 mr-1" src="./assets/save favorite before.png" onclick="changeImage(this)" data-value="Change" id="myImg2" data-food="Chocolate S'mores Cake" data-beer="Huerca Cerveza">
                                             </div>
                                         </div>
                                     </div>
@@ -155,6 +155,7 @@
     </div>
 
     <!-- JS link -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="./assets/script_searchresults.js"></script>
 
     <!-- Footer -->
