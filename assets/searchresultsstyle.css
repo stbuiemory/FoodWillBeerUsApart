@@ -18,4 +18,9 @@ h3:hover {
 .navbar {
   background-color: #F5F5F5;
 }
-  
+.pair-text{
+  padding-top: 100px;
+}
+.pair-container{
+  border: 3px solid black;
+}

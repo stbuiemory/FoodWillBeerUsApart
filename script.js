@@ -15,6 +15,8 @@ function findFood() {
     $('#beerDescription').text(' ');
     // let foodChoice  = document.querySelector('input').value;
     
+    
+
     //PUNK API
     //https://api.punkapi.com/v2/beers
     //the below create variables for PunkAPI call for random and food choice each return 1 example
@@ -102,6 +104,7 @@ function getPicture(foodChoice) {
     //returns data from pexel search and logs in console
     .then (function(data) {
         let pic = data.photos[0].src.medium;
+        $('#saved-food-'+searchedList.indexOf(foodChoice)).attr('src', pic)
         return pic;
     })
 }
@@ -110,6 +113,7 @@ function getPicture(foodChoice) {
 function getBeerPicture() {
     //calls to pexel API for beerImages
     let beerURL = "https://api.pexels.com/v1/search?query=beer%20glass"
+    let temp = 'a'
     fetch (beerURL,{
         headers: {Authorization: "FGp7KD2IIxlTtlnSEQw20khyYWikbeox6QBSkS92WV7Wj7UX37T9NDyI"}
     })
@@ -121,13 +125,27 @@ function getBeerPicture() {
         //finds a random image of a beer
         let randomNumber =  Math.floor(Math.random() * (15) );
         let beerPic = beerData.photos[randomNumber].src.medium;
+        for(i in searchedList){
+            console.log(beerPic)
+            $('#saved-beer-'+i).attr('src', beerPic)
+        }
         return beerPic
     })
 }
 
 
 
- //TODO: create a functiona if #randombutton is selected on the UI, grab the beer and food pairings
+ 
+
+//TODO: Pass each food pairing to the Pexels API to grab an image.
+ //TODO: create a function to use local storage to store and retrieve food pairings 
+ // id's to be used: #searchButton, #rouletteButton 
+ $('#searchButton').click(findFood)
+
+ $('#roulettebutton').click(getRandom)
+
+
+//TODO: create a functiona if #randombutton is selected on the UI, grab the beer and food pairings
 
  //This saves the whole api query under the searched food item.
  function saveBeerData(foodKey, data){
@@ -145,23 +163,27 @@ function getBeerPicture() {
     return data
  }
 
-function listSearchedItems(){
-    let section = $('.section')
+async function listSearchedItems(){
+    let section = $('#multi-purpose')
     section.append('<div class="save-list"></div>')
     let saveList = $('.save-list')
     for(i in searchedList){
-        console.log('index: '+i)
-        console.log('item searched: '+searchedList[i])
-        console.log(JSON.parse(getSavedData(searchedList[i])))
-        let beerData = (JSON.parse(getSavedData(searchedList[i])))[0]
-        saveList.append('<div id="save-'+i+'"></div>')
+        // console.log('index: '+i)
+        // console.log('item searched: '+searchedList[i])
+        // console.log(JSON.parse(getSavedData(searchedList[i])))
+        let beerData = (JSON.parse(getSavedData(searchedList[i])))
+        saveList.append('<div id="save-'+i+'" class="columns mb-2 pair-container"></div>')
         let box = $('#save-'+i)
-        box.append('<image id="saved-beer-'+i+'" src="'+getBeerPicture()+'" alt="saved-beer-'+i+'">')
-        box.append('<div>'+beerData.name+'</div>')
-        box.append('<div>paired with</div>')
-        box.append('<div>'+searchedList[i]+'</div>')
-        box.append('<image id="saved-food-'+i+'" src="'+getPicture(searchedList[i])+'" alt="saved-food-'+i+'">')
+        box.append('<image id="saved-beer-'+i+'" src="" alt="saved-beer-'+i+'" class="column" style="width:250px; height:250px;">')
+        
+        //console.log(getBeerPicture())
+        box.append('<div class="column pair-text"><b>'+beerData.beer+'</b></div>')
+        box.append('<div class="column pair-text">paired with</div>')
+        box.append('<div class="column pair-text"><b>'+searchedList[i]+'</b></div>')
+        box.append('<image id="saved-food-'+i+'" src="" alt="saved-food-'+i+'" class="column" style="width:250px; height:250px;">')
+        getPicture(searchedList[i])
     }
+    getBeerPicture()
 }
 
 function removeSearchedItems(){
@@ -169,6 +191,7 @@ function removeSearchedItems(){
 }
 
 var toggleSavePairing = function(event){
+    console.log('pair toggled')
     event.preventDefault
     // get specific heart button id
     let heart = $(event.target)
@@ -176,58 +199,49 @@ var toggleSavePairing = function(event){
     let food = heart.attr("data-food")
     let foodImg = heart.attr("data-foodImg")
     let beer = heart.attr("data-beer")
-    let beerImg = heart.attr("data-beerImg")
     // checks if the var is saved
     let isSaved = searchedList.includes(food)
+    console.log(isSaved)
     // acts based on wether the button was clicked or not
     if(isSaved){
         let index = searchedList.indexOf(food)
-        searchedList = searchedList.splice(index, 1)
+        searchedList.splice(index, 1)
         localStorage.setItem(previousSearchesKey, JSON.stringify(searchedList))
+        localStorage.removeItem(food)
         // Todo: add heart color change
     }else{
-        let info = {food:food, foodImg:foodImg, beer:beer, beerImg:beerImg}
+        let info = {food:food, foodImg:foodImg, beer:beer}
+        searchedList.push(food)
+        localStorage.setItem(previousSearchesKey, JSON.stringify(searchedList))
         localStorage.setItem(food, JSON.stringify(info))
         // Todo: add heart color change
     }
 }
 
-var toggleSavedPairings = function(){
-    let container = $(".save-list")
-    if($.trim(container.html()).length===0){
-        listSearchedItems()
-    }else{
-        removeSearchedItems()
-    }
+
+var takeToSavedPairings = function(event){
+    destroyHomepageItems()
+    listSearchedItems()
 }
+
+function destroyHomepageItems(){
+    console.log($('#multi-purpose'))
+    $('#multi-purpose').children().remove()
+}
+
+$('#saved-pairing-link').on('click', takeToSavedPairings)
+for(let i = 0; i<3; i++){
+    $('#save-'+i).on('click', toggleSavePairing)
+}
+
+// destroyHomepageItems()
+// listSearchedItems()
 
 //findFood()
 
-listSearchedItems()
+//listSearchedItems()
 
-//TODO: Pass each food pairing to the Pexels API to grab an image.
 
-//declaring open empty array to store favorites into "pairingFavorite" objects listed in the array
-let favoriteList = []
-
-//stored favorite object
-let storedFavorite = {
-    beername: beerName,
-    beerimage: beerPic,
-    foodName: "",
-    foodImage: "",
-}
-
-//storing favortieList into local storage in stringify form
-window.localStorage.setItem(favoriteList, JSON.stringify(favoriteList))
-
-//parsing favoriteList from storage to read data
-storedFavorites = JSON.parse(window.localStorage.getItem(favoriteList));
-
- //TODO: create a function to use local storage to store and retrieve food pairings 
- // id's to be used: #searchButton, #rouletteButton 
- $('#searchButton').click(findFood)
-
- $('#rouletteButton').click(getRandom)
+ //add
 
  // id for beer:  #beerImage. #beerTitle, #beerDescription | #pairing-one-text, #pairing-two-text, #pairing-three-text
