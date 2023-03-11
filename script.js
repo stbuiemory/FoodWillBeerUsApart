@@ -168,18 +168,18 @@ async function listSearchedItems(){
     section.append('<div class="save-list"></div>')
     let saveList = $('.save-list')
     for(i in searchedList){
-        console.log('index: '+i)
-        console.log('item searched: '+searchedList[i])
-        console.log(JSON.parse(getSavedData(searchedList[i])))
-        let beerData = (JSON.parse(getSavedData(searchedList[i])))[0]
-        saveList.append('<div id="save-'+i+'" class="columns"></div>')
+        // console.log('index: '+i)
+        // console.log('item searched: '+searchedList[i])
+        // console.log(JSON.parse(getSavedData(searchedList[i])))
+        let beerData = (JSON.parse(getSavedData(searchedList[i])))
+        saveList.append('<div id="save-'+i+'" class="columns mb-2 pair-container"></div>')
         let box = $('#save-'+i)
         box.append('<image id="saved-beer-'+i+'" src="" alt="saved-beer-'+i+'" class="column" style="width:250px; height:250px;">')
         
         //console.log(getBeerPicture())
-        box.append('<div class="column">'+beerData.name+'</div>')
-        box.append('<div class="column">paired with</div>')
-        box.append('<div class="column">'+searchedList[i]+'</div>')
+        box.append('<div class="column pair-text"><b>'+beerData.beer+'</b></div>')
+        box.append('<div class="column pair-text">paired with</div>')
+        box.append('<div class="column pair-text"><b>'+searchedList[i]+'</b></div>')
         box.append('<image id="saved-food-'+i+'" src="" alt="saved-food-'+i+'" class="column" style="width:250px; height:250px;">')
         getPicture(searchedList[i])
     }
