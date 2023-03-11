@@ -199,19 +199,20 @@ var toggleSavePairing = function(event){
     let food = heart.attr("data-food")
     let foodImg = heart.attr("data-foodImg")
     let beer = heart.attr("data-beer")
-    let beerImg = heart.attr("data-beerImg")
     // checks if the var is saved
     let isSaved = searchedList.includes(food)
+    console.log(isSaved)
     // acts based on wether the button was clicked or not
     if(isSaved){
         let index = searchedList.indexOf(food)
-        searchedList = searchedList.splice(index, 1)
+        searchedList.splice(index, 1)
         localStorage.setItem(previousSearchesKey, JSON.stringify(searchedList))
         localStorage.removeItem(food)
         // Todo: add heart color change
     }else{
-        let info = {food:food, foodImg:foodImg, beer:beer, beerImg:beerImg}
+        let info = {food:food, foodImg:foodImg, beer:beer}
         searchedList.push(food)
+        localStorage.setItem(previousSearchesKey, JSON.stringify(searchedList))
         localStorage.setItem(food, JSON.stringify(info))
         // Todo: add heart color change
     }
