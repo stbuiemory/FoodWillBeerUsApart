@@ -1,6 +1,5 @@
 * {
     background-color: #F5F5F5;
-    font-family: 
 }
 
 a:hover {
@@ -14,5 +13,9 @@ h3:hover {
 
   .fa-heart:hover, .fa-heart:focus {
     color: red;
-  }
+}
+
+.navbar {
+  background-color: #F5F5F5;
+}
   

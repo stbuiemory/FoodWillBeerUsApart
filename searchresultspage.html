@@ -18,7 +18,21 @@
   <body>
     <!-- Top Nav Bar -->
     <!-- NEED TO ADD URL OF HOMEPAGE AND REPLACE LOGO -->
-    <div class="navbar-start">
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="https://bulma.io">
+            <img class="is-rounded" src="./assets/starterlogo.png" alt="Placeholder_Logo">
+          </a>
+          <h3 class="title is-4 py-6">Food Will Beer Us Apart</h3>
+        </div>
+        
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <h3 class="is-4 py-5 mx-3">Saved Results</h3>
+            </div>
+        </div>
+    </nav>
+    <!-- <div class="navbar-start">
         <div class="is-flex is-align-items-center">
           <section class="image is-64x64">
             <img class="is-rounded" src="./assets/starterlogo.png" alt="Placeholder_Logo">
@@ -29,7 +43,7 @@
                 </h3>
             </a>
         </div>
-    </div>
+    </div> -->
     <!-- Bottom Nav Bar -->
     <div class="navbar-end">
         <a id="saved-pairing-link">
@@ -40,22 +54,22 @@
               
   
     <!-- Search Bar -->
-    <div class="container m-2">
+    <div class="container">
         <div class="columns is-centered">
           <div class="column is-half">
-            <div class="field has-addons px-6">
-              <div class="control">
+            <div class="control mt-3">
+                <h5 pb-3>Find Your Food</h5>
                 <input class="input" type="text" placeholder="Search">
-              </div>
-              <div class="buttons">
+            </div>
+              <div class="buttons is-centered mt-3">
                 <button id="searchButton" class="button is-info has-background-warning-dark">Search</button>
                 <button id="rouletteButton" class="button is-info has-background-warning has-text-warning-dark">Roulette Pick</button>
               </div>
             </div>
           </div>
-        </div>
       </div>
-      
+    
+
       
     <!-- Beer and Food Section -->
     <div class="selections py-6 px-6">
@@ -64,16 +78,13 @@
                 <div class="column">
                     <section class="columns">
                         <div class="container">
-                            <div class="column1">
-                                <img class="image is-4by4" src="./assets/beer_description_placeholder.jpg" alt="beer description placeholder">
-                                <p>Our flagship beer that kick started the craft beer revolution. This is James and Martin's 
+                            <div class="is-two-fifths">
+                                <h1 id="beerTitle" class="mb-3">Beer Title</h1>
+                                <img id="beerImage" class="image is-4by4" src="./assets/beer_description_placeholder.jpg" alt="beer description placeholder">
+                                <p id="beerDescription" class="column mt-3 is-two-fifths">Our flagship beer that kick started the craft beer revolution. This is James and Martin's 
                                 original take on an American IPA, subverted with punchy New Zealand hops. Layered with new 
                                 world hops to create an all-out riot of grapefruit, pineapple and lychee before a spiky, 
                                 mouth-puckering bitter finish
-                                </p>
-                                <p>While it may surprise you, this version of Punk IPA isn't dry hopped but still packs a punch! 
-                                To make the best of the aroma hops make sure they are fully submerged and add them just before
-                                knock out for an intense hop hit.
                                 </p>
                             </div>
                         </div>
@@ -86,48 +97,48 @@
                         <div class="container">
                             <div class="column2">
                                 <div class="rows">
-                                        <div class="row is-one-third">
+                                        <div class="row is-one-third my-3">
                                             <div class="media">
                                                 <figure class="media-left">
                                                     <p class="image is-2by2">
-                                                        <img src="./assets/food_pairing1_placeholder.jpg" alt="pairing 1 placeholder">
+                                                        <img id= "#pairing-one-img" src="./assets/food_pairing1_placeholder.jpg" alt="pairing 1 placeholder">
                                                     </p>
                                                 </figure>
                                                 <div class="media-content ml-5">
                                                     <a href="url-of-another-page.html">
-                                                        <p>Chicken Fajitas
+                                                        <p id="#pairing-one-text">Chicken Fajitas
                                                         </p>
                                                     </a>
                                                     <p><i class="far fa-heart"></i> Save this Pairing</p>
                                                 </div>
                                             </div>
                                         </div>
-                                    <div class="row is-one-third">
+                                    <div class="row is-one-third my-3">
                                         <div class="media">
                                             <figure class="media-left">
                                                 <p class="image is-2by2">
-                                                    <img src="./assets/food_pairing2_placeholder.jpg" alt="pairing 2 placeholder">
+                                                    <img id= "#pairing-twp-img"  src="./assets/food_pairing2_placeholder.jpg" alt="pairing 2 placeholder">
                                                 </p>
                                             </figure>
                                                 <div class="media-content ml-5">
                                                     <a href="url-of-another-page.html">
-                                                        <p>Garlic Seasoned Fries
+                                                        <p id="#pairing-two-text">Garlic Seasoned Fries
                                                         </p>
                                                     </a>
                                                     <p><i class="far fa-heart"></i> Save this Pairing</p>
                                                 </div>
                                         </div>
                                     </div>
-                                    <div class="row is-one-third">
+                                    <div class="row is-one-third mt-5">
                                     <div class="media">
                                         <figure class="media-left">
                                             <p class="image is-2by2">
-                                                <img src="./assets/food_pairing_dessert_placeholder.jpg" alt="pairing 3 placeholder">
+                                                <img id="#pairing-three-img" src="./assets/food_pairing_dessert_placeholder.jpg" alt="pairing 3 placeholder">
                                             </p>
                                         </figure>
                                             <div class="media-content ml-5">
                                                 <a href="url-of-another-page.html">
-                                                    <p>Chocolate S'mores Cake
+                                                    <p id="#pairing-three-text">Chocolate S'mores Cake
                                                     </p>
                                                 </a>
                                                 <p><i class="far fa-heart"></i> Save this Pairing</p>
@@ -138,7 +149,7 @@
                         </div>
                     </section>
                 </div>       
-        </div>
+            </div>
     </div>
 
     <!-- Footer -->
