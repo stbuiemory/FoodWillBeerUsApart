@@ -1,0 +1,33 @@
+  /* Effect when user mouses over nav bar links */
+  a:hover {
+    background-image: url('./animated_beer_foam.gif');
+    border-radius: 9px;
+    overflow: hidden;
+  }
+
+  body {
+    background-color: #feb204;
+    background-image: url(./ContactFormWheat.jpg);
+    background-size: cover;
+  }
+
+  .columns {
+    padding-top: 45px;
+  }
+  /* Effect when user hovers over contact form fields */
+  .input, .textarea {
+    opacity: 0.5;
+  }
+  
+  .input:hover {
+    opacity: 1.0;
+  }
+
+  .textarea:hover {
+    opacity: 1.0;
+  }
+
+
+  .input.is-danger {
+    border-color: darkslategray;
+}
