@@ -7,6 +7,14 @@ if(searchedList === null){
     searchedList = JSON.parse(searchedList)
 }
 
+for(let i=0; i<3; i++){
+  let img = $('#myImg'+i)
+  console.log(img)
+  if(searchedList.includes(img.attr('data-food'))){
+    img.attr('src', './assets/save favorite after.png');
+  }
+}
+
 // Function that toggles Save this Pairing icon on clicks
 function changeImage(img) {
   let heart = $(img)
