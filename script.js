@@ -191,6 +191,7 @@ function removeSearchedItems(){
 }
 
 var toggleSavePairing = function(event){
+    console.log('pair toggled')
     event.preventDefault
     // get specific heart button id
     let heart = $(event.target)
@@ -206,9 +207,11 @@ var toggleSavePairing = function(event){
         let index = searchedList.indexOf(food)
         searchedList = searchedList.splice(index, 1)
         localStorage.setItem(previousSearchesKey, JSON.stringify(searchedList))
+        localStorage.removeItem(food)
         // Todo: add heart color change
     }else{
         let info = {food:food, foodImg:foodImg, beer:beer, beerImg:beerImg}
+        searchedList.push(food)
         localStorage.setItem(food, JSON.stringify(info))
         // Todo: add heart color change
     }
@@ -226,6 +229,9 @@ function destroyHomepageItems(){
 }
 
 $('#saved-pairing-link').on('click', takeToSavedPairings)
+for(let i = 0; i<3; i++){
+    $('#save-'+i).on('click', toggleSavePairing)
+}
 
 // destroyHomepageItems()
 // listSearchedItems()
