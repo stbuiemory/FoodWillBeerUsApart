@@ -203,13 +203,13 @@ var toggleSavePairing = function(event){
     let isSaved = searchedList.includes(food)
     console.log(isSaved)
     // acts based on wether the button was clicked or not
-    if(isSaved){
+    if(isSaved){ //if saved
         let index = searchedList.indexOf(food)
         searchedList.splice(index, 1)
         localStorage.setItem(previousSearchesKey, JSON.stringify(searchedList))
         localStorage.removeItem(food)
         // Todo: add heart color change
-    }else{
+    }else{ //if not saved
         let info = {food:food, foodImg:foodImg, beer:beer}
         searchedList.push(food)
         localStorage.setItem(previousSearchesKey, JSON.stringify(searchedList))
@@ -231,7 +231,7 @@ function destroyHomepageItems(){
 
 $('#saved-pairing-link').on('click', takeToSavedPairings)
 for(let i = 0; i<3; i++){
-    $('#save-'+i).on('click', toggleSavePairing)
+    $('#myImg'+i).on('click', toggleSavePairing)
 }
 
 // destroyHomepageItems()
