@@ -14,7 +14,12 @@
   .columns {
     padding-top: 45px;
   }
-  /* Effect when user hovers over contact form fields */
+
+  .footer {
+    margin-top: 300px;
+  }
+
+  /* Effect when user hovers over contact form fields
   .input, .textarea {
     opacity: 0.5;
   }
@@ -27,7 +32,6 @@
     opacity: 1.0;
   }
 
-
   .input.is-danger {
     border-color: darkslategray;
-}
+} */
