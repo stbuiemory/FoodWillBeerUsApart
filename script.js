@@ -74,7 +74,7 @@ function getRandom() {
 
         //sets the beerdescription
         $('#beerTitle').text(beerName);
-        $('#beerPic').attr("src", getBeerPicture());
+        $('#beerImage').attr("src", getBeerPicture());
         $('#beerDescription').text(beerDescription);
 
         //sets the pairing text / image
