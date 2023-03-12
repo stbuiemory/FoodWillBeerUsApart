@@ -75,13 +75,13 @@ for(i in searchedList){
     let beerData = (JSON.parse(getSavedData(searchedList[i])))
     saveList.append('<div id="save-'+i+'" class="columns mb-2 pair-container"></div>')
     let box = $('#save-'+i)
-    box.append('<image id="saved-beer-'+i+'" src="" alt="saved-beer-'+i+'" class="column" style="width:250px; height:250px;">')
+    box.append('<image id="saved-beer-'+i+'" src="" alt="saved-beer-'+i+'" class="column saved-Img" style="width:250px; height:250px;">')
     
     //console.log(getBeerPicture())
-    box.append('<div class="column pair-text"><b>'+beerData.beer+'</b></div>')
-    box.append('<div class="column pair-text">paired with</div>')
-    box.append('<div class="column pair-text"><b>'+searchedList[i]+'</b></div>')
-    box.append('<image id="saved-food-'+i+'" src="" alt="saved-food-'+i+'" class="column" style="width:250px; height:250px;">')
+    box.append('<div class="column has-text-centered has-text-black is-size-4 pair-text"><b>'+beerData.beer+'</b></div>')
+    box.append('<div class="column has-text-centered has-text-black is-size-4 pair-text">paired with</div>')
+    box.append('<div class="column has-text-centered has-text-black is-size-4 pair-text"><b>'+searchedList[i]+'</b></div>')
+    box.append('<image id="saved-food-'+i+'" src="" alt="saved-food-'+i+'" class="column saved-Img" style="width:250px; height:250px;">')
     getPicture(searchedList[i])
 }
 getBeerPicture()
