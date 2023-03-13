@@ -1,30 +1,15 @@
-/* CSS styles for the pop-up window */
-    /* .container {
-      display: flex;
-      align-items: center;
-      justify-content: center
-    } */
+
     .beer_image {
       margin-right: 45% !important;
       margin-left: 45% !important;
-      /* text-align: center; */
       
     }
     img {
-      /* position: normal;  */
       width: 61px;
       height: 61px;
       margin-left: 50%;
       margin-right: 50%;
-      /* display: flex; */
       margin: 0 auto;  
-      /* position: absolute; */
-      /* top: 100px; 
-      left: 0;
-      right: 0; */
-      /* justify-content: center; */
-      /* margin: auto; */
-      /* text-align: center */
     }  
     .section {
       margin-top: 70px;
@@ -42,7 +27,6 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      /* text-align: center */
     }
 
     .popup__content {
@@ -53,20 +37,11 @@
       max-width: 467px;
       max-height: 200px;
       text-align: center;
-      /* position: absolute; */
       color: white;
       font-family: Raleway;
       font-style: normal;
       font-size: 20px;
-      /* line-height: 37.57px; */
-      /* margin-top: 42px; */
-      /* margin-left: 45px; */
-      /* top: 20px; */
-      /* left: 0px;
-      right: 0px */
-      /* display: flex; */
-      /* align-items: center; */
-      /* justify-content: center */
+      
     }
     .text {
       position: absolute;
