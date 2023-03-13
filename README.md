@@ -22,17 +22,13 @@ To use the application open the application in the browser.  The user will be pr
 
 ![Opening Screen](assets/Screenshots/EntryPage.jpg)
 
-Once the user has verified their age they will be taken to the home screen, and can choose to go to the search screen or their previous saved pairings.
-
-![Home Screen](assets/Screenshots/HomePage.jpg)
-
-From the search screen you have two options.  The user can select a beer at random with the roulette button, or can enter in a food into the search bar.  After selecting either of these options, you will be presented with a matching beer and food pairing.  A brief description of the beer and a group of recommend food pairings are provided to the user to explore.
+Once the user has verified their age they will be taken to the search screen, and can choose to go to the search screen or their previous saved pairings.  From the search screen you have two options.  The user can select a beer at random with the roulette button, or can enter in a food into the search bar.  After selecting either of these options, you will be presented with a matching beer and food pairing.  A brief description of the beer, and a group of recommend food pairings are provided to the user to explore.
 
 ![Results Screen](assets/Screenshots/SearchResultsPage.jpg)
 
 The user also has the option to save the pairing into their search history, to refer back to it later.
 
-![Saved Screen](assets/images/screenshot.png)
+![Saved Screen](assets/Screenshots/SavedPairingScreen.jpg)
 
 
 ## Credits
