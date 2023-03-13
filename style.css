@@ -1,12 +1,14 @@
 
-    .beer_image {
+    .project_image {
       margin-right: 45% !important;
       margin-left: 45% !important;
+      height: 50px;
+      width: 70px;
       
     }
     img {
-      width: 61px;
-      height: 61px;
+      width: 70px;
+      height: 70px;
       margin-left: 50%;
       margin-right: 50%;
       margin: 0 auto;  
