@@ -1,134 +1,68 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Food will Beer us Apart</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Arvo:wght@700&family=Raleway&display=swap" rel="stylesheet">
-  </head>
-  <body>
-  <section class="section">
-    <div class="hero-body">
-    <div class="container">
-        <img src="./beer logo.png" alt="beer logo" width="300" height="200">
 
-      <h1 class="title">
-        Food will Beer us Apart
-      </h1>
-      <p class="subtitle">
-         <strong>Find your food</strong>!
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Food will Beer us Apart</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Arvo:wght@700&family=Raleway&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css" rel="stylesheet" />
+
+</head>
+
+<body>
+  <section class="section">
+    <div class="project_image">
+      <div class='column'></div>
+      <img src="./Project logo.jpeg" class="img-logo" alt="beer logo" />
+    </div>
+    <div>
+      <!-- <h1 class="title has-text-centered"> -->
+      <!-- Food will Beer us Apart</h1> -->
+      <p class="subtitle has-text-centered">
+        <strong>A little bit of beer and food is divine medicine!</strong>
       </p>
     </div>
-  </div>
   </section>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="./script.js"></script>
-  <!DOCTYPE html>
-  <html>
-    <head>
-      <title>21+ Age Verification</title>
-      <style>
-        /* CSS styles for the pop-up window */
-        .title {
-            color : black
-            
-
-
-        }
-
-        .popup {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background: rgba(0, 0, 0, 0.5);
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-        .popup__content {
-          background: #C54A21;
-          padding: 70px;
-          border-radius: 10px;
-          box-shadow: 0 0 10px black;
-          max-width: 800px;
-          text-align: center;
-        }
-        .popup__button {
-          background: white;
-          color: black;
-          border: none;
-          padding: 10px 20px;
-          border-radius: 5px;
-          cursor: pointer;
-          font-size: 30px;
-        }
-
-        .popup__content{
-            font-size: 25px;
-            color: white
-        }
-
-        footer {
-        border-top: solid 1px;
-        background: #663C20;
-        width: 100%;
-        height: 40px;
-        padding-top: 10px;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        text-align: center;
-}
-
-      </style>
-    </head>
-    <body>
-      <div class="popup">
-        <div class="popup__content">
-          <h2>Are you 21 years of age or older?</h2>
-          <p>Please confirm that you are of legal drinking age.</p>
-          <button class="popup__button" onclick="confirmPopup()">Yes or No</button>
-        </div>
+  <div class="popup">
+    <div class="popup__content">
+      <div class="notification hidden is-danger">
+        <h1>Come back later when older!</h1>
       </div>
-      <script>
-        function confirmPopup() {
-//           var result = confirm("Do you want to continue?");
-//   if (result == true) {
-//     alert("You clicked Yes");
-//   } else {
-//     alert("You clicked No");
-//   }
-// }
-
-          // Hide the pop-up window
-          document.querySelector('.popup').style.display = 'none';
-        }
-      </script>
-
-<!-- <button onclick="confirmPopup()">Open Yes or No Pop-up</button> -->
-
-<!-- <script>
-function confirmPopup() {
-  var result = confirm("Do you want to continue?");
-  if (result == true) {
-    alert("You clicked OK");
-  } else {
-    alert("You clicked Cancel");
-  }
-}
-</script> -->
-
-    </body>
-  </html>
+      <div class="question">
+        <h2>Are you 21 + or older?</h2>
+        <button class="popup__button" onclick="confirmPopup()">Yes</button>
+        <button class="popup__button" onclick="noAnswer()">No</button>
+      </div>
+    </div>
+  </div>
   <footer>
     <p class="has-text-white has-background-brown">
-    Janella Yar<br>Clarence Clang <br>Charles Kilgore&emsp;&emsp;&emsp;&emsp;&emsp;Corbin Spence&emsp;&emsp;&emsp;&emsp;&emsp;Sandy Bui
+      Janella Yar &emsp;&emsp;&emsp;&emsp;&emsp;Clarence Clang &emsp;&emsp;&emsp;&emsp;&emsp;Charles
+      Kilgore&emsp;&emsp;&emsp;&emsp;&emsp;Corbin Spence&emsp;&emsp;&emsp;&emsp;&emsp;Sandy Bui
     </p>
   </footer>
-  </body>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="./script.js"></script>
+  <script>
+    // js functions for pop age verification
+    function confirmPopup() {
+      document.querySelector('.popup').style.display = 'none';
+    }
+    function noAnswer() {
+      document.querySelector('.notification').classList.remove('hidden');
+      document.querySelector('.question').classList.add("hidden")
+      setTimeout(() => {
+        document.querySelector('.notification').style.display = 'none';
+        document.querySelector('.question').style.display='block';
+      }, 1000)
+
+    }
+  </script>
+</body>
 
 </html>

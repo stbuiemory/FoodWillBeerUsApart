@@ -41,6 +41,7 @@ function findFood() {
             $('#beerPic').attr("src", getBeerPicture());
             $('#beerDescription').text(beerDescription);
 
+
             //sets the pairing text / image
             $('#pairing-one-text').text(pairing_one);
             $('#pairing-one-img').attr("src", getPicture(pairing_one, "one"));
