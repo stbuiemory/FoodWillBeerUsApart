@@ -2,19 +2,24 @@
     .project_image {
       margin-right: 45% !important;
       margin-left: 45% !important;
-      height: 50px;
-      width: 70px;
+      /* height: auto; */
+      /* width: auto; */
       
     }
-    img {
-      width: 70px;
-      height: 70px;
-      margin-left: 50%;
-      margin-right: 50%;
-      margin: 0 auto;  
+    .img-logo {
+      width: 300px !important;
+      height: 175px !important;
+      /* margin-left: 50%; */
+      /* margin-right: 50%; */
+      /* margin: 0 auto;   */
     }  
+    .subtitle{
+      /* padding-top: 75px; */
+
+    }
     .section {
-      margin-top: 70px;
+      /* margin-top: 70px; */
+      /* margin-bottom: 0px; */
     } 
     .hidden {
       display: none
@@ -45,6 +50,11 @@
       font-size: 20px;
       
     }
+    /* .question{ */
+      /* margin-bottom: 250px; */
+      /* padding-bottom: 250px; */
+
+    
     .text {
       position: absolute;
       top: 0;

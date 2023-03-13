@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,35 +9,36 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Arvo:wght@700&family=Raleway&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-          <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css" rel="stylesheet" />
 
 </head>
+
 <body>
   <section class="section">
-      <div class="container project_image">
-        <div class='column'></div>
-                  <img src="./Project logo.jpeg" alt="beer logo" />
-        </div>
-      </div>
-          <div class="container">
-            <!-- <h1 class="title has-text-centered"> -->
-              <!-- Food will Beer us Apart</h1> -->
-            <p class="subtitle has-text-centered">
-              <strong>A little bit of beer and food is divine medicine</strong>!
-            </p>
-          </div>
-        </div>
+    <div class="project_image">
+      <div class='column'></div>
+      <img src="./Project logo.jpeg" class="img-logo" alt="beer logo" />
+    </div>
+    <div>
+      <!-- <h1 class="title has-text-centered"> -->
+      <!-- Food will Beer us Apart</h1> -->
+      <p class="subtitle has-text-centered">
+        <strong>A little bit of beer and food is divine medicine!</strong>
+      </p>
+    </div>
   </section>
-    <div class="popup">
-      <div class="popup__content">
-        <div class="notification hidden is-danger">
-          <h1>Come back later when older!</h1>
-        </div>
+  <div class="popup">
+    <div class="popup__content">
+      <div class="notification hidden is-danger">
+        <h1>Come back later when older!</h1>
+      </div>
+      <div class="question">
         <h2>Are you 21 + or older?</h2>
         <button class="popup__button" onclick="confirmPopup()">Yes</button>
         <button class="popup__button" onclick="noAnswer()">No</button>
       </div>
     </div>
+  </div>
   <footer>
     <p class="has-text-white has-background-brown">
       Janella Yar &emsp;&emsp;&emsp;&emsp;&emsp;Clarence Clang &emsp;&emsp;&emsp;&emsp;&emsp;Charles
@@ -51,11 +53,14 @@
     function confirmPopup() {
       document.querySelector('.popup').style.display = 'none';
     }
-    function noAnswer(){
-      document.querySelector('.notification').style.display = 'block';
-      setTimeout(()=>{
+    function noAnswer() {
+      document.querySelector('.notification').classList.remove('hidden');
+      document.querySelector('.question').classList.add("hidden")
+      setTimeout(() => {
         document.querySelector('.notification').style.display = 'none';
-      },1000)
+        document.querySelector('.question').style.display='block';
+      }, 1000)
+
     }
   </script>
 </body>
