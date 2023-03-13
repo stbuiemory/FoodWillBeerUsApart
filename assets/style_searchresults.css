@@ -48,7 +48,7 @@ h5 {
 }
 
 /* Effect when user has mouse over food pairings */
-#food-links:hover p {
+.food-links:hover p {
   background-image: url('./animated_beer_foam.gif');
   border-radius: 10px;
   overflow: hidden;
