@@ -62,7 +62,9 @@ API URL: https://www.pexels.com/api/documentation/#
 
 
 Attributions:  
+
 Freepik-Flaticon URL: https://www.flaticon.com/free-icons/cheers" title="cheers icons
+
 Photo by Engin Akyurt: https://www.pexels.com/photo/clear-glass-mug-with-brown-liquid-3356410/
 
 
