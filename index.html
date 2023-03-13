@@ -15,13 +15,11 @@
 
 <body>
   <section class="section">
-    <div class="project_image">
+    <div class="project_image image">
       <div class='column'></div>
-      <img src="./Project logo.jpeg" class="img-logo" alt="beer logo" />
+      <img src="./Project logo.jpeg" class="img-logo is-rounded" alt="beer logo" />
     </div>
     <div>
-      <!-- <h1 class="title has-text-centered"> -->
-      <!-- Food will Beer us Apart</h1> -->
       <p class="subtitle has-text-centered">
         <strong>A little bit of beer and food is divine medicine!</strong>
       </p>
@@ -29,9 +27,9 @@
   </section>
   <div class="popup">
     <div class="popup__content">
-      <div class="notification hidden is-danger">
+      <div class="notification hidden is-danger"> 
         <h1>Come back later when older!</h1>
-      </div>
+      </div> 
       <div class="question">
         <h2>Are you 21 + or older?</h2>
         <button class="popup__button" onclick="confirmPopup()">Yes</button>
@@ -53,12 +51,14 @@
     function confirmPopup() {
       document.querySelector('.popup').style.display = 'none';
     }
+    
     function noAnswer() {
+      console.log ('hello')
       document.querySelector('.notification').classList.remove('hidden');
       document.querySelector('.question').classList.add("hidden")
       setTimeout(() => {
-        document.querySelector('.notification').style.display = 'none';
-        document.querySelector('.question').style.display='block';
+        document.querySelector('.notification').classList.add("hidden");
+        document.querySelector('.question').classList.remove("hidden");
       }, 1000)
 
     }
