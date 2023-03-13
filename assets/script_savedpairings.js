@@ -65,26 +65,26 @@ function destroyHomepageItems(){
   }
   
 async function listSearchedItems(){
-let section = $('#multi-purpose')
-section.append('<div class="save-list"></div>')
-let saveList = $('.save-list')
-for(i in searchedList){
-    // console.log('index: '+i)
-    // console.log('item searched: '+searchedList[i])
-    // console.log(JSON.parse(getSavedData(searchedList[i])))
-    let beerData = (JSON.parse(getSavedData(searchedList[i])))
-    saveList.append('<div id="save-'+i+'" class="columns mb-2 pair-container"></div>')
-    let box = $('#save-'+i)
-    box.append('<image id="saved-beer-'+i+'" src="" alt="saved-beer-'+i+'" class="column saved-Img" style="width:250px; height:250px;">')
-    
-    //console.log(getBeerPicture())
-    box.append('<div class="column has-text-centered has-text-black is-size-4 pair-text"><b>'+beerData.beer+'</b></div>')
-    box.append('<div class="column has-text-centered has-text-black is-size-4 pair-text">paired with</div>')
-    box.append('<div class="column has-text-centered has-text-black is-size-4 pair-text"><b>'+searchedList[i]+'</b></div>')
-    box.append('<image id="saved-food-'+i+'" src="" alt="saved-food-'+i+'" class="column saved-Img" style="width:250px; height:250px;">')
-    getPicture(searchedList[i])
-}
-getBeerPicture()
+    let section = $('#multi-purpose')
+    section.append('<div class="save-list"></div>')
+    let saveList = $('.save-list')
+    for(i in searchedList){
+        // console.log('index: '+i)
+        // console.log('item searched: '+searchedList[i])
+        // console.log(JSON.parse(getSavedData(searchedList[i])))
+        let beerData = (JSON.parse(getSavedData(searchedList[i])))
+        saveList.append('<div id="save-'+i+'" class="columns mb-2 pair-container"></div>')
+        let box = $('#save-'+i)
+        box.append('<image id="saved-beer-'+i+'" src="" alt="saved-beer-'+i+'" class="column ml-5 saved-Img" style="width:250px; height:250px;">')
+        
+        //console.log(getBeerPicture())
+        box.append('<div class="column has-text-centered has-text-black is-size-4 pair-text"><b>'+beerData.beer+'</b></div>')
+        box.append('<div class="column has-text-centered has-text-black is-size-4 pair-text">paired with</div>')
+        box.append('<div class="column has-text-centered has-text-black is-size-4 pair-text"><b>'+searchedList[i]+'</b></div>')
+        box.append('<image id="saved-food-'+i+'" src="" alt="saved-food-'+i+'" class="column mr-5 saved-Img" style="width:250px; height:250px;">')
+        getPicture(searchedList[i])
+    }
+    getBeerPicture()
 }
   
 var takeToSavedPairings = function(event){
