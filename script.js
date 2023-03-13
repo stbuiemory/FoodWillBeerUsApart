@@ -1,43 +1,39 @@
 const baseSearchURL = "https://api.punkapi.com/v2/beers?per_page=1&food="
-const previousSearchesKey = "previous searches"
-let searchedList = localStorage.getItem(previousSearchesKey)
-if(searchedList === null){
-    searchedList = []
-    localStorage.setItem(previousSearchesKey, JSON.stringify(searchedList))
-}else{
-    searchedList = JSON.parse(searchedList)
-}
-//food choice should be user input for food
-function findFood() {
-    let foodChoice = "mushroom"
-    
-    $('#beerTitle').text(' ');
-    $('#beerDescription').text(' ');
-    // let foodChoice  = document.querySelector('input').value;
-    
-    
+let punkApiFood = baseSearchURL + foodChoice 
 
-    //PUNK API
-    //https://api.punkapi.com/v2/beers
-    //the below create variables for PunkAPI call for random and food choice each return 1 example
-    let punkApiFood = baseSearchURL + foodChoice 
-    
-    //calls to PunkAPI for beer data for food choice
-    fetch (punkApiFood)
-        .then (function(response) {
-            return response.json()
-        })
-        .then (function(data) {
-            let beerName = data[0].name; 
-            let beerDescription = data[0].description;
-            let pairing_one = data[0].food_pairing[0];
-            let pairing_two = data[0].food_pairing[1];
-            let pairing_three = data[0].food_pairing[2];
-            
-            //sets the Beerdescription
-            $('#beerTitle').text(beerName);
-            $('#beerPic').attr("src", getBeerPicture());
-            $('#beerDescription').text(beerDescription);
+//this will set up the initial form for the user
+// function setUpHomepage(){
+//     container.append('<form id="search-prompt">')
+//     let form = $('#search-prompt')
+//     console.log(form)
+//     form.append('<p> Find your food </p>')
+//     form.append('<input type="text" placeholder="food name" id="search-name">')
+//     form.append('<input type="button" value="submit" id="search">')
+//     form.append('<p>or</p>')
+//     form.append('<input type="button" value="submit" id="random">')
+//     //onclick for search button
+//     form.on('click', '#search', function(event){
+//         let searchForm = $(event.target).parent('#search-prompt')
+//         let textArea = searchForm.children("#search-name")
+//         let criteria = (((textArea.val()).trim()).toLowerCase()).replace(/\s+/, '+')
+//         console.log(criteria)
+//         if(criteria===''){
+//             console.log('Must have user input.')
+//             return
+//         }
+//         callBeerData(criteria)
+//     })
+//     //onclick for random button
+//     form.on('click', '#random', function(){
+//         getRandBeerData()
+//     })
+// }
+
+// function deconstructHomepage(){
+//     let form = $('#search-prompt')
+//     form.remove()
+// }
+// setUpHomepage()
 
             //sets the pairing text / image
             $('#pairing-one-text').text(pairing_one);
