@@ -8,6 +8,17 @@ if(searchedList === null){
     searchedList = JSON.parse(searchedList)
 }
 
+function fillSaveIcons(){
+    for(let i=0; i<3; i++){
+        let img = $('#myImg'+i)
+        console.log(img)
+        if(searchedList.includes(img.attr('data-food'))){
+          img.attr('src', './assets/save favorite after.png');
+        }else{
+            img.attr('src', './assets/save favorite before.png');
+        }
+      }
+}
 
 //food choice should be user input for food
 function findFood() {
@@ -52,6 +63,16 @@ function findFood() {
             $('#pairing-three-text').text(pairing_three);
             $('#pairing-three-img').attr("src", getPicture(pairing_three, "three"));
             $('#beerDescription').text(beerDescription);
+
+            // attaches info as data to save icons
+            $('#myImg0').attr('data-food', pairing_one)
+            $('#myImg0').attr('data-beer', beerName)
+            $('#myImg1').attr('data-food', pairing_two)
+            $('#myImg1').attr('data-beer', beerName)
+            $('#myImg2').attr('data-food', pairing_three)
+            $('#myImg2').attr('data-beer', beerName)
+
+            fillSaveIcons()
             
         })
 }
@@ -168,13 +189,13 @@ async function listSearchedItems(){
         let beerData = (JSON.parse(getSavedData(searchedList[i])))
         saveList.append('<div id="save-'+i+'" class="columns mb-2 pair-container"></div>')
         let box = $('#save-'+i)
-        box.append('<image id="saved-beer-'+i+'" src="" alt="saved-beer-'+i+'" class="column" style="width:250px; height:250px;">')
+        box.append('<image id="saved-beer-'+i+'" src="" alt="saved-beer-'+i+'" class="column ml-5 saved-Img" style="width:250px; height:250px;">')
         
         //console.log(getBeerPicture())
-        box.append('<div class="column pair-text"><b>'+beerData.beer+'</b></div>')
-        box.append('<div class="column pair-text">paired with</div>')
-        box.append('<div class="column pair-text"><b>'+searchedList[i]+'</b></div>')
-        box.append('<image id="saved-food-'+i+'" src="" alt="saved-food-'+i+'" class="column" style="width:250px; height:250px;">')
+        box.append('<div class="column has-text-centered has-text-black is-size-4 pair-text"><b>'+beerData.beer+'</b></div>')
+        box.append('<div class="column has-text-centered has-text-black is-size-4 pair-text">paired with</div>')
+        box.append('<div class="column has-text-centered has-text-black is-size-4 pair-text"><b>'+searchedList[i]+'</b></div>')
+        box.append('<image id="saved-food-'+i+'" src="" alt="saved-food-'+i+'" class="column mr-5 saved-Img" style="width:250px; height:250px;">')
         getPicture(searchedList[i])
     }
     getBeerPicture()
@@ -223,10 +244,31 @@ function destroyHomepageItems(){
     $('#multi-purpose').children().remove()
 }
 
-$('#saved-pairing-link').on('click', takeToSavedPairings)
-for(let i = 0; i<3; i++){
-    $('#myImg'+i).on('click', toggleSavePairing)
-}
+function changeImage(img) {
+    let heart = $(img)
+    let food = heart.attr("data-food")
+    let beer = heart.attr("data-beer")
+    if (img.getAttribute('src') === './assets/save favorite before.png') { //if not saved
+      let info = {food:food, beer:beer}
+      searchedList.push(food)
+      localStorage.setItem(previousSearchesKey, JSON.stringify(searchedList))
+      localStorage.setItem(food, JSON.stringify(info))
+      img.setAttribute('src', './assets/save favorite after.png');
+    } else { //if saved
+      let index = searchedList.indexOf(food)
+      searchedList.splice(index, 1)
+      localStorage.setItem(previousSearchesKey, JSON.stringify(searchedList))
+      localStorage.removeItem(food)
+      img.setAttribute('src', './assets/save favorite before.png');
+    }
+  }  
+
+// $('#saved-pairing-link').on('click', takeToSavedPairings)
+// for(let i = 0; i<3; i++){
+//     $('#myImg'+i).on('click', toggleSavePairing)
+// }
+
+fillSaveIcons()
 
 // destroyHomepageItems()
 // listSearchedItems()
@@ -239,3 +281,36 @@ for(let i = 0; i<3; i++){
  //add
 
  // id for beer:  #beerImage. #beerTitle, #beerDescription | #pairing-one-text, #pairing-two-text, #pairing-three-text
+
+
+//  function for popup age veritifcation
+ function noAnswer() {
+    document.querySelector('.notification').classList.remove('hidden');
+    document.querySelector('.question').classList.add("hidden")
+    setTimeout(() => {
+      document.querySelector('.notification').classList.add("hidden");
+      document.querySelector('.question').classList.remove("hidden");
+    }, 1000)
+
+  }
+
+ // Function that toggles Save this Pairing icon on clicks
+function changeImage(img) {
+    let heart = $(img)
+    let food = heart.attr("data-food")
+    let beer = heart.attr("data-beer")
+    if (img.getAttribute('src') === './assets/save favorite before.png') { //if not saved
+      let info = {food:food, beer:beer}
+      searchedList.push(food)
+      localStorage.setItem(previousSearchesKey, JSON.stringify(searchedList))
+      localStorage.setItem(food, JSON.stringify(info))
+      img.setAttribute('src', './assets/save favorite after.png');
+    } else { //if saved
+      let index = searchedList.indexOf(food)
+      searchedList.splice(index, 1)
+      localStorage.setItem(previousSearchesKey, JSON.stringify(searchedList))
+      localStorage.removeItem(food)
+      img.setAttribute('src', './assets/save favorite before.png');
+    }
+  }  
+
