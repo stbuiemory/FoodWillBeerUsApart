@@ -239,3 +239,14 @@ for(let i = 0; i<3; i++){
  //add
 
  // id for beer:  #beerImage. #beerTitle, #beerDescription | #pairing-one-text, #pairing-two-text, #pairing-three-text
+
+//  function for popup age veritifcation
+ function noAnswer() {
+    document.querySelector('.notification').classList.remove('hidden');
+    document.querySelector('.question').classList.add("hidden")
+    setTimeout(() => {
+      document.querySelector('.notification').classList.add("hidden");
+      document.querySelector('.question').classList.remove("hidden");
+    }, 1000)
+
+  }
