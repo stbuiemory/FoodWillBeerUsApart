@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Food will Beer us Apart</title>
+    <!-- Bulma link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <!-- Google font link -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arvo:wght@700&family=Raleway&display=swap" rel="stylesheet">
+    <!-- CSS link -->
+    <link rel="stylesheet" href="./assets/style_homepage.css">
+</head>
+
+<body>
+    <!-- Nav Bar -->
+    <!-- NEED TO ADD URLS TO HOMEPAGE AND SEARCH RESULTS AND REPLACE LOGO -->
+    <nav class="navbar has-background-warning-dark">
+        <div class="navbar-brand">
+            <div class="navbar-item">
+                <figure class="image">
+                    <img class="is-rounded" src="./assets/Placeholder_logo_2.jpg" alt="Placeholder_logo"
+                        style="max-height: 175px">
+                </figure>
+            </div>
+            <div class="navbar-menu" id="nav-links">
+                <div class="navbar-start">
+                    <a href="page_searchresults.html" class="navbar-item has-text-white title is-4 mb-0">Search
+                        Results</a>
+                    <a href="page_savedpairings.html" class="navbar-item has-text-white title is-4 mb-0">Saved
+                        Pairings</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Search Bar -->
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-half">
+                <div class="control mt-3">
+                    <h5 pb-3>Find Your Food</h5>
+                    <input class="input" type="text" placeholder="Search">
+                </div>
+                <div class="buttons is-centered mt-3">
+                    <button id="searchButton" class="button is-info has-background-warning-dark">Search</button>
+                    <button id="rouletteButton"
+                        class="button is-info has-background-warning has-text-warning-dark">Roulette Pick</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Homepage blurb -->
+    <div class="container2">
+        <div class="content is-centered">
+            <div class="content has-text-white has-text-centered is-size-5">
+                <div class="is-flex-direction-column mt-5">
+                    <h1 class="has-text-warning-light">Hello World</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend
+                        gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui.
+                        Fusce erat odio, sollicitudin vel erat vel, interdum mattis neque.</p>
+                    <h2 class="has-text-warning-light">Second level</h2>
+                    <p>Curabitur accumsan turpis pharetra blandit. Quisque condimentum maximus mi, sit amet commodo arcu
+                        rutrum id. Proin pretium urna vel cursus venenatis. Suspendisse potenti. Etiam mattis sem
+                        rhoncus lacus dapibus facilisis. Donec at dignissim dui. Ut et neque nisl.</p>
+                    <ul>
+                        <li>In fermentum leo eu lectus mollis, quis dictum mi aliquet.</li>
+                        <li>Morbi eu nulla lobortis, lobortis est in, fringilla felis.</li>
+                        <li>Aliquam nec felis in sapien venenatis viverra fermentum nec lectus.</li>
+                        <li>Ut non enim metus.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS link -->
+    <script src="./ass/script_searchresults.js"></script>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="hero is-primary">
+            <div class="hero-body has-background-warning-dark">
+                <div class="container has-text-centered">
+                    <h1 class="title has-background-warning-dark is-italic">
+                        Beer and good food make me hoppy!
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="./assets/script_searchresults.js"></script>
+
+</body>
+
+</html>
