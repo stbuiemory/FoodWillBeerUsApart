@@ -240,6 +240,7 @@ for(let i = 0; i<3; i++){
 
  // id for beer:  #beerImage. #beerTitle, #beerDescription | #pairing-one-text, #pairing-two-text, #pairing-three-text
 
+
 //  function for popup age veritifcation
  function noAnswer() {
     document.querySelector('.notification').classList.remove('hidden');
@@ -250,3 +251,24 @@ for(let i = 0; i<3; i++){
     }, 1000)
 
   }
+
+ // Function that toggles Save this Pairing icon on clicks
+function changeImage(img) {
+    let heart = $(img)
+    let food = heart.attr("data-food")
+    let beer = heart.attr("data-beer")
+    if (img.getAttribute('src') === './assets/save favorite before.png') { //if not saved
+      let info = {food:food, beer:beer}
+      searchedList.push(food)
+      localStorage.setItem(previousSearchesKey, JSON.stringify(searchedList))
+      localStorage.setItem(food, JSON.stringify(info))
+      img.setAttribute('src', './assets/save favorite after.png');
+    } else { //if saved
+      let index = searchedList.indexOf(food)
+      searchedList.splice(index, 1)
+      localStorage.setItem(previousSearchesKey, JSON.stringify(searchedList))
+      localStorage.removeItem(food)
+      img.setAttribute('src', './assets/save favorite before.png');
+    }
+  }  
+

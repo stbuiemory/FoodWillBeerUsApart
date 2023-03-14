@@ -54,7 +54,7 @@
       cursor: pointer;
       font-size: 15px;
     }
-    footer {
+    /* footer {
       border-top: solid 1px;
       background: #663C20;
       width: 100%;
@@ -64,4 +64,40 @@
       bottom: 0;
       left: 0;
       text-align: center;
+    } */
+
+
+    body {
+      background-color: #E5E4E2;
+    }
+
+    /* Border around beer section */
+    .column1 {
+      background-color: #feb204;
+      background-image: url(./assets/Wheat.jpg);
+      background-size: cover;
+      border: 1px solid;
+      padding: 10px;
+      box-shadow: 5px 5px #feb204, 9px 9px #c54a21, 13px 13px #334758;
+    }
+
+    /* Border around food section */
+    .column2 {
+      background-color: #ffcfa8;
+      background-image: linear-gradient(90deg, #ffcfa8 0%, #ffe29d 50%, #ffffff 100%);
+      border: 1px solid;
+      padding: 10px;
+      box-shadow: 4px 4px #feb204, 8px 8px #c54a21, 12px 12px #334758;
+    }
+
+    .footer {
+      background-color: #E5E4E2;
+      position: fixed;
+      width: 100%;
+      height: 60px;
+    }
+
+    /* Styling for text above search box */
+    h5 {
+      font-weight: bold;
     }
