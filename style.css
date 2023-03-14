@@ -64,6 +64,20 @@
       bottom: 0;
       left: 0;
       text-align: center;
+    }
+
+    /* moved from style_savedpairings.css */
+    .pair-text{
+      padding-top: 100px;
+    }
+    .pair-container{
+      background-color: rgba(128, 128, 128, 0.5);
+      border-radius: 10px;
+      padding-bottom: 50px;
+    }
+    .saved-Img{
+      border: 2px solid black;
+      padding: 0px;
     } */
 
 
