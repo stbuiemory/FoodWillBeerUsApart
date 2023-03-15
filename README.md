@@ -16,6 +16,13 @@ The objective behind building this application was to provide an easy to use too
 
 This is a browser based application. No extra installation steps are required to run this application. To run the application open it in your browser.
 
+
+## Deployment Link
+
+URL to deployed application:
+https://stbuiemory.github.io/FoodWillBeerUsApart/
+
+
 ## Usage
 
 To use the application open the application in the browser.  The user will be prompted to advise if they are 21 years of age or not. 
